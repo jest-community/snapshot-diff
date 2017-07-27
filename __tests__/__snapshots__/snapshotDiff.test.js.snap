@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can colorize diff 1`] = `
+"[32m- Second value[39m
+[31m+ Received[39m
+
+[2m [22m 
+[2m [22m [2m    some[22m
+[2m [22m [2m    some[22m
+[2m [22m [2m    some[22m
+[2m [22m [2m    some[22m
+[2m [22m [2m    some[22m
+[2m [22m [2m    some[22m
+[2m [22m [2m    some[22m
+[2m [22m [2m    not[22m
+[31m+[39m [31m    so[39m
+[2m [22m [2m    very[22m
+[2m [22m [2m    long[22m
+[2m [22m [2m    script[22m"
+`;
+
+exports[`can expand diff 1`] = `
+"- Second value
++ Received
+
+  
+      some
+      some
+      some
+      some
+      some
+      some
+      some
+      not
++     so
+      very
+      long
+      script"
+`;
+
+exports[`collapses diffs and strips ansi by default 1`] = `
+"- Second value
++ Received
+
+@@ -5,8 +5,9 @@
+     some
+     some
+     some
+     some
+     not
++    so
+     very
+     long
+     script"
+`;
+
+exports[`detects React components 1`] = `
+"- <Component test=\\"say\\" />
++ <Component test=\\"my name\\" />
+
+@@ -1,14 +1,14 @@
+ <div>
+   <span />
+   <span />
+   <span />
+   <span>
+-    say
++    my name
+   </span>
+   <span>
+-    say
++    my name
+   </span>
+   <span />
+   <span />
+   <span />
+   <span />
+@@ -27,11 +27,11 @@
+   <span />
+   <span />
+   <span />
+   <span />
+   <span>
+-    say
++    my name
+   </span>
+   <span />
+   <span />
+   <span />
+   <span />"
+`;

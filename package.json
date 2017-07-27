@@ -1,0 +1,31 @@
+{
+  "name": "snapshot-diff",
+  "version": "0.0.0",
+  "description": "Diffing Jest snapshots utility",
+  "main": "build/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir build",
+    "watch": "babel -w src --out-dir build",
+    "test": "jest",
+    "prepublish": "npm run build",
+    "flow": "flow check"
+  },
+  "peerDependencies": {
+    "jest": ">=16",
+    "react-test-renderer": ">=15"
+  },
+  "dependencies": {
+    "strip-ansi": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "flow-bin": "^0.51.0",
+    "jest": "^20.0.4",
+    "react": "^15.6.1",
+    "react-test-renderer": "^15.6.1"
+  }
+}
