@@ -1,9 +1,10 @@
 {
   "name": "snapshot-diff",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Diffing Jest snapshots utility",
   "main": "build/index.js",
   "license": "MIT",
+  "author": "Michał Pierzchała <thymikee@gmail.com>",
   "scripts": {
     "build": "babel src --out-dir build",
     "watch": "babel -w src --out-dir build",
@@ -11,6 +12,7 @@
     "prepublish": "npm run build",
     "flow": "flow check"
   },
+  "repository": "https://github.com/thymikee/snapshot-diff",
   "peerDependencies": {
     "jest": ">=16",
     "react-test-renderer": ">=15"
