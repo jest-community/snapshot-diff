@@ -15,7 +15,7 @@ yarn add --dev snapshot-diff
 const snapshotDiff = require('snapshot-diff');
 
 test('snapshot difference between 2 strings', () => {
-  expect(snapshotDiff(a, b).toMatchSnapshot();
+  expect(snapshotDiff(a, b)).toMatchSnapshot();
 });
 
 const React = require('react');
