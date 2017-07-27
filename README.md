@@ -33,7 +33,7 @@ test('snapshot difference between 2 React components state', () => {
 
 Produced snapshot:
 ```diff
-exports[`diffs short strings 1`] = `
+exports[`snapshot difference between 2 strings 1`] = `
 "- First value
 + Second value
 
@@ -43,7 +43,7 @@ exports[`diffs short strings 1`] = `
    "
 `;
 
-exports[`detects React components 1`] = `
+exports[`snapshot difference between 2 React components state 1`] = `
 "- <Component test=\\"say\\" />
 + <Component test=\\"my name\\" />
 
