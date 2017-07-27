@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`can colorize diff 1`] = `
-"[32m- Second value[39m
-[31m+ Received[39m
+"[32m- First value[39m
+[31m+ Second value[39m
 
 [2m [22m 
 [2m [22m [2m    some[22m
@@ -20,8 +20,8 @@ exports[`can colorize diff 1`] = `
 `;
 
 exports[`can expand diff 1`] = `
-"- Second value
-+ Received
+"- First value
++ Second value
 
   
       some
@@ -39,8 +39,8 @@ exports[`can expand diff 1`] = `
 `;
 
 exports[`collapses diffs and strips ansi by default 1`] = `
-"- Second value
-+ Received
+"- First value
++ Second value
 
 @@ -5,8 +5,9 @@
      some
@@ -88,4 +88,14 @@ exports[`detects React components 1`] = `
    <span />
    <span />
    <span />"
+`;
+
+exports[`diffs short strings 1`] = `
+"- First value
++ Second value
+
+ 
+-  abcx
++  abcy
+   "
 `;

@@ -128,6 +128,16 @@ test('can colorize diff', () => {
   expect(snapshotDiff(a, b, {colors: true})).toMatchSnapshot();
 });
 
+test('diffs short strings', () => {
+  const x = `
+  abcx
+  `;
+  const y = `
+  abcy
+  `;
+  expect(snapshotDiff(x, y)).toMatchSnapshot();
+});
+
 test('detects React components', () => {
   expect(
     snapshotDiff(<Component test="say" />, <Component test="my name" />)

@@ -20,7 +20,7 @@ const snapshotDiff = (
   valueA: any,
   valueB: any,
   options?: Options = defaultOptions
-) => {
+): string => {
   let difference;
 
   if (isReactComponent(valueA) && isReactComponent(valueB)) {
@@ -43,7 +43,7 @@ function diffStrings(valueA, valueB, options) {
   return diff(valueA, valueB, {
     expand: options.expand,
     aAnnotation: 'First value',
-    aAnnotation: 'Second value'
+    bAnnotation: 'Second value'
   });
 }
 
