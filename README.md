@@ -1,4 +1,6 @@
 # snapshot-diff
+[![npm version](https://badge.fury.io/js/snapshot-diff.svg)](https://badge.fury.io/js/snapshot-diff)
+
 Diffing snapshot utility for Jest. Takes two values, and return their difference as a string, ready to be snapshoted with `toMatchSnapshot()`.
 Especially helpful when testing the difference between different states of a React component.
 
