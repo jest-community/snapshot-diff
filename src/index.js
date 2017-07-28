@@ -51,8 +51,6 @@ function diffReactComponents(valueA, valueB, options) {
   const renderer = require('react-test-renderer');
   const reactValueA = renderer.create(valueA).toJSON();
   const reactValueB = renderer.create(valueB).toJSON();
-  const aAnnotation = valueA.type.displayName || valueA.type.name || 'Unknown';
-  const bAnnotation = valueB.type.displayName || valueB.type.name || 'Unknown';
   const prettyFormatOptions = {plugins: [ReactElement], min: true};
 
   return diff(reactValueA, reactValueB, {
