@@ -38,6 +38,25 @@ exports[`can expand diff 1`] = `
       script"
 `;
 
+exports[`can use contextLines on diff 1`] = `
+"- First value
++ Second value
+
+  
+      some
+      some
+      some
+      some
+      some
+      some
+      some
+      not
++     so
+      very
+      long
+      script"
+`;
+
 exports[`collapses diffs and strips ansi by default 1`] = `
 "- First value
 + Second value
