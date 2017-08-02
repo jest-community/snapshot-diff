@@ -121,11 +121,11 @@ test('collapses diffs and strips ansi by default', () => {
 });
 
 test('can expand diff', () => {
-  expect(snapshotDiff(a, b, {expand: true})).toMatchSnapshot();
+  expect(snapshotDiff(a, b, { expand: true })).toMatchSnapshot();
 });
 
 test('can colorize diff', () => {
-  expect(snapshotDiff(a, b, {colors: true})).toMatchSnapshot();
+  expect(snapshotDiff(a, b, { colors: true })).toMatchSnapshot();
 });
 
 test('can use contextLines on diff', () => {

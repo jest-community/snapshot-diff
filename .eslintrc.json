@@ -1,0 +1,8 @@
+{
+  "extends": "callstack-io",
+  "rules": {
+    "global-require": 0,
+    "flowtype/no-weak-types": 0,
+    "strict": [0, "global"]
+  }
+}
