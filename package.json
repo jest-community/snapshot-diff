@@ -19,7 +19,7 @@
     "react-test-renderer": ">=15"
   },
   "dependencies": {
-    "jest-diff": "^20.0.3",
+    "jest-diff": "test",
     "pretty-format": "^20.0.3",
     "strip-ansi": "^4.0.0"
   },
@@ -31,7 +31,7 @@
     "eslint": "^4.3.0",
     "eslint-config-callstack-io": "^0.4.0",
     "flow-bin": "^0.51.0",
-    "jest": "^20.0.4",
+    "jest": "test",
     "react": "^15.6.1",
     "react-test-renderer": "^15.6.1"
   }

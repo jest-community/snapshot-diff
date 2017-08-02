@@ -4,19 +4,16 @@ exports[`can colorize diff 1`] = `
 "[32m- First value[39m
 [31m+ Second value[39m
 
-[2m [22m 
-[2m [22m [2m    some[22m
-[2m [22m [2m    some[22m
-[2m [22m [2m    some[22m
-[2m [22m [2m    some[22m
-[2m [22m [2m    some[22m
-[2m [22m [2m    some[22m
-[2m [22m [2m    some[22m
-[2m [22m [2m    not[22m
-[31m+[39m [31m    so[39m
-[2m [22m [2m    very[22m
-[2m [22m [2m    long[22m
-[2m [22m [2m    script[22m"
+[33m@@ -5,8 +5,9 @@[39m
+[33m[39m[2m     some[22m
+[2m     some[22m
+[2m     some[22m
+[2m     some[22m
+[2m     not[22m
+[31m+    so[39m
+[2m     very[22m
+[2m     long[22m
+[2m     script[22m"
 `;
 
 exports[`can expand diff 1`] = `
@@ -42,19 +39,23 @@ exports[`can use contextLines on diff 1`] = `
 "- First value
 + Second value
 
-  
-      some
-      some
-      some
-      some
-      some
-      some
-      some
-      not
-+     so
-      very
-      long
-      script"
+@@ -10,0 +10,1 @@
++    so"
+`;
+
+exports[`can use contextLines with React components 1`] = `
+"- <Component test=\\"say\\" />
++ <Component test=\\"my name\\" />
+
+@@ -6,1 +6,1 @@
+-    say
++    my name
+@@ -9,1 +9,1 @@
+-    say
++    my name
+@@ -32,1 +32,1 @@
+-    say
++    my name"
 `;
 
 exports[`collapses diffs and strips ansi by default 1`] = `

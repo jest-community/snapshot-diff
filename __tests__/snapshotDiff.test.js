@@ -129,7 +129,7 @@ test('can colorize diff', () => {
 });
 
 test('can use contextLines on diff', () => {
-  expect(snapshotDiff(a, b, {contextLines: 0})).toMatchSnapshot();
+  expect(snapshotDiff(a, b, { contextLines: 0 })).toMatchSnapshot();
 });
 
 test('diffs short strings', () => {
@@ -145,5 +145,13 @@ test('diffs short strings', () => {
 test('detects React components', () => {
   expect(
     snapshotDiff(<Component test="say" />, <Component test="my name" />)
+  ).toMatchSnapshot();
+});
+
+test('can use contextLines with React components', () => {
+  expect(
+    snapshotDiff(<Component test="say" />, <Component test="my name" />, {
+      contextLines: 0,
+    })
   ).toMatchSnapshot();
 });

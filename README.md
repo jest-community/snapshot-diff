@@ -78,6 +78,7 @@ snapshotDiff(valueA: any, valueB: any, options?: Options) => string
 ### Options
 * `expand: boolean` (default: `false`) – expand the diff, so the whole information is preserved
 * `colors: boolean` (default: `false`) – preserve color information from Jest diff
+* `contextLines: number` (default: 5) - number of context lines to be shown at the beginning and at the end of a snapshot
 
 ---
 

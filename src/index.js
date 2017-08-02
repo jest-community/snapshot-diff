@@ -20,20 +20,17 @@ const defaultOptions = {
   contextLines: -1, // Forces to use default from Jest
 };
 
-const snapshotDiff = (
-  valueA: any,
-  valueB: any,
-  options?: Options = defaultOptions
-): string => {
+const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
   let difference;
+  const mergedOptions = Object.assign({}, defaultOptions, options);
 
   if (isReactComponent(valueA) && isReactComponent(valueB)) {
-    difference = diffReactComponents(valueA, valueB, options);
+    difference = diffReactComponents(valueA, valueB, mergedOptions);
   } else {
-    difference = diffStrings(valueA, valueB, options);
+    difference = diffStrings(valueA, valueB, mergedOptions);
   }
 
-  if (!options.colors) {
+  if (!mergedOptions.colors) {
     const stripAnsi = require('strip-ansi');
     return stripAnsi(difference);
   }
