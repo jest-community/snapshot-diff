@@ -11,11 +11,13 @@ const reactElement = Symbol.for('react.element');
 type Options = {
   expand?: boolean,
   colors?: boolean,
+  contextLines?: number,
 };
 
 const defaultOptions = {
   expand: false,
   colors: false,
+  contextLines: -1, // Forces to use default from Jest
 };
 
 const snapshotDiff = (
@@ -45,6 +47,7 @@ const isReactComponent = (value: any) =>
 function diffStrings(valueA: any, valueB: any, options: Options) {
   return diff(valueA, valueB, {
     expand: options.expand,
+    contextLines: options.contextLines,
     aAnnotation: 'First value',
     bAnnotation: 'Second value',
   });
@@ -58,6 +61,7 @@ function diffReactComponents(valueA: any, valueB: any, options: Options) {
 
   return diff(reactValueA, reactValueB, {
     expand: options.expand,
+    contextLines: options.contextLines,
     aAnnotation: prettyFormat(valueA, prettyFormatOptions),
     bAnnotation: prettyFormat(valueB, prettyFormatOptions),
   });

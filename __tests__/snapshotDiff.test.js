@@ -128,6 +128,10 @@ test('can colorize diff', () => {
   expect(snapshotDiff(a, b, { colors: true })).toMatchSnapshot();
 });
 
+test('can use contextLines on diff', () => {
+  expect(snapshotDiff(a, b, {contextLines: 0})).toMatchSnapshot();
+});
+
 test('diffs short strings', () => {
   const x = `
   abcx
