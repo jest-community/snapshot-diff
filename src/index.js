@@ -1,5 +1,7 @@
 // @flow
 
+'use strict';
+
 const diff = require('jest-diff');
 const prettyFormat = require('pretty-format');
 
