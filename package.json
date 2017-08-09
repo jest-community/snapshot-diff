@@ -1,6 +1,6 @@
 {
   "name": "snapshot-diff",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Diffing Jest snapshots utility",
   "main": "build/index.js",
   "license": "MIT",
