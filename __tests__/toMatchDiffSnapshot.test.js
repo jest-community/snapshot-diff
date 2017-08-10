@@ -34,7 +34,7 @@ beforeAll(() => {
   expect.extend({ toMatchDiffSnapshot: snapshotDiff.toMatchDiffSnapshot });
 });
 
-test('foo', () => {
+test('works with default options', () => {
   expect(a).toMatchDiffSnapshot(b);
 });
 
