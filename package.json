@@ -3,6 +3,7 @@
   "version": "0.0.5",
   "description": "Diffing Jest snapshots utility",
   "main": "build/index.js",
+  "typings": "index.d.ts",
   "license": "MIT",
   "author": "Michał Pierzchała <thymikee@gmail.com>",
   "scripts": {
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "jest-diff": "test",
+    "jest-snapshot": "test",
     "pretty-format": "^20.0.3",
     "strip-ansi": "^4.0.0"
   },

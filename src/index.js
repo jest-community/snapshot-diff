@@ -3,6 +3,7 @@
 'use strict';
 
 const diff = require('jest-diff');
+const snapshot = require('jest-snapshot');
 const prettyFormat = require('pretty-format');
 
 const { ReactElement } = prettyFormat.plugins;
@@ -64,4 +65,12 @@ function diffReactComponents(valueA: any, valueB: any, options: Options) {
   });
 }
 
+function toMatchDiffSnapshot(valueA: any, valueB: any, options: Options) {
+  const difference = snapshotDiff(valueA, valueB, options);
+
+  return snapshot.toMatchSnapshot.call(this, difference);
+}
+
 module.exports = snapshotDiff;
+module.exports.snapshotDiff = snapshotDiff;
+module.exports.toMatchDiffSnapshot = toMatchDiffSnapshot;
