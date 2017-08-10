@@ -65,7 +65,7 @@ function diffReactComponents(valueA: any, valueB: any, options: Options) {
   });
 }
 
-function toMatchDiffSnapshot(valueA: any, valueB: any, options: Options) {
+function toMatchDiffSnapshot(valueA: any, valueB: any, options?: Options) {
   const difference = snapshotDiff(valueA, valueB, options);
 
   return snapshot.toMatchSnapshot.call(this, difference);
