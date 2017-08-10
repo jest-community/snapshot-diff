@@ -12,22 +12,37 @@ yarn add --dev snapshot-diff
 ## Usage
 
 ```js
-const snapshotDiff = require('snapshot-diff');
+const { snapshotDiff, toMatchDiffSnapshot } = require('snapshot-diff');
+
+// register custom matcher (optional)
+expect.extend({ toMatchDiffSnapshot });
 
 test('snapshot difference between 2 strings', () => {
+  // use default jest snapshot matcher
   expect(snapshotDiff(a, b)).toMatchSnapshot();
+    
+  // or use custom diff snapshot matcher
+  expect(a).toMatchDiffSnapshot(b);
 });
 
 const React = require('react');
 const Component = require('./Component');
 
 test('snapshot difference between 2 React components state', () => {
+  // use default jest matcher
   expect(
     snapshotDiff(
       <Component test="say" />,
       <Component test="my name" />
     )
   ).toMatchSnapshot();
+  
+  // or use custom diff snapshot matcher
+  expect(
+    <Component test="say" />
+  ).toMatchDiffSnapshot(
+    <Component test="my name" />
+  );    
 });
 ```
 
