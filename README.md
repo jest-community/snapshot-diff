@@ -11,33 +11,43 @@ yarn add --dev snapshot-diff
 
 ## Usage
 
+##### With default jest matcher
+
 ```js
-const { snapshotDiff, toMatchDiffSnapshot } = require('snapshot-diff');
+const snapshotDiff = require('snapshot-diff');
 
-// register custom matcher (optional)
-expect.extend({ toMatchDiffSnapshot });
-
-test('snapshot difference between 2 strings', () => {
-  // use default jest snapshot matcher
+test('snapshot difference between 2 strings', () => {  
   expect(snapshotDiff(a, b)).toMatchSnapshot();
-    
-  // or use custom diff snapshot matcher
-  expect(a).toMatchDiffSnapshot(b);
 });
 
 const React = require('react');
 const Component = require('./Component');
 
 test('snapshot difference between 2 React components state', () => {
-  // use default jest matcher
   expect(
     snapshotDiff(
       <Component test="say" />,
       <Component test="my name" />
     )
   ).toMatchSnapshot();
-  
-  // or use custom diff snapshot matcher
+});
+```
+
+##### With custom matcher
+
+```js
+const { toMatchDiffSnapshot } = require('snapshot-diff');
+
+expect.extend({ toMatchDiffSnapshot });
+
+test('snapshot difference between 2 strings', () => { 
+  expect(a).toMatchDiffSnapshot(b);
+});
+
+const React = require('react');
+const Component = require('./Component');
+
+test('snapshot difference between 2 React components state', () => { 
   expect(
     <Component test="say" />
   ).toMatchDiffSnapshot(
@@ -46,7 +56,10 @@ test('snapshot difference between 2 React components state', () => {
 });
 ```
 
+
+
 Produced snapshot:
+
 ```diff
 exports[`snapshot difference between 2 strings 1`] = `
 "- First value
