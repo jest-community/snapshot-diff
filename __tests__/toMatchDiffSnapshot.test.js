@@ -35,6 +35,7 @@ beforeAll(() => {
 });
 
 test('works with default options', () => {
+  // $FlowFixMe
   expect(a).toMatchDiffSnapshot(b);
 });
 
@@ -44,6 +45,7 @@ test('works with default options', () => {
   { contextLines: 0 },
 ].forEach((options: any) => {
   test(`proxies "${Object.keys(options).join(', ')}" option(s)`, () => {
+    // $FlowFixMe
     expect(a).toMatchDiffSnapshot(b, options);
   });
 });
