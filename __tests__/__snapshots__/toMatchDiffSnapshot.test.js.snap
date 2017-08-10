@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`proxies "colors" option(s) 1`] = `
+"[32m- First value[39m
+[31m+ Second value[39m
+
+[33m@@ -5,8 +5,9 @@[39m
+[33m[39m[2m     some[22m
+[2m     some[22m
+[2m     some[22m
+[2m     some[22m
+[2m     not[22m
+[31m+    so[39m
+[2m     very[22m
+[2m     long[22m
+[2m     script[22m"
+`;
+
+exports[`proxies "contextLines" option(s) 1`] = `
+"- First value
++ Second value
+
+@@ -10,0 +10,1 @@
++    so"
+`;
+
+exports[`proxies "expand" option(s) 1`] = `
+"- First value
++ Second value
+
+  
+      some
+      some
+      some
+      some
+      some
+      some
+      some
+      not
++     so
+      very
+      long
+      script"
+`;
+
+exports[`works with default options 1`] = `
+"- First value
++ Second value
+
+@@ -5,8 +5,9 @@
+     some
+     some
+     some
+     some
+     not
++    so
+     very
+     long
+     script"
+`;
