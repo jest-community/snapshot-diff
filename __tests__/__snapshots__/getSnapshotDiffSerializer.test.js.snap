@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`serialize array diff output 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+ Array [
+   "foo",
+-  "bar",
+   "baz",
++  "quoz",
+ ]
+`;
+
+exports[`serialize object diff output 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+ Object {
+-  "foo": "bar",
++  "foo": "baz",
+ }
+`;
+
+exports[`serialize text diff output 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+ foo
+-bar
+ baz
++quoz
+`;
