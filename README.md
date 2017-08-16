@@ -11,7 +11,7 @@ yarn add --dev snapshot-diff
 
 ## Usage
 
-##### With default jest matcher
+#### With default jest matcher
 
 ```js
 const snapshotDiff = require('snapshot-diff');
@@ -33,7 +33,7 @@ test('snapshot difference between 2 React components state', () => {
 });
 ```
 
-##### With custom matcher
+#### With custom matcher
 
 ```js
 const { toMatchDiffSnapshot } = require('snapshot-diff');
@@ -93,9 +93,8 @@ exports[`snapshot difference between 2 React components state 1`] = `
 
 ## Snapshot serializer
 
-By default jest adds extra quotes around strings so it makes diff snapshots of objects too noisy. 
-
-To fix this - you can add custom serializer to you test file:
+By default Jest adds extra quotes around strings so it makes diff snapshots of objects too noisy. 
+To fix this – `snapshot-diff` comes with custom serializer, which you can add directly in your tests or in `setupFiles` script:
 
 ```js
 const snapshotDiff = require('snapshot-diff');
@@ -107,7 +106,7 @@ test('snapshot difference between 2 objects', () => {
 });
 ```
 
-Or add it globally to your jest config:
+...or add it globally to your jest config:
 
 ```json
 "jest": {
@@ -117,14 +116,13 @@ Or add it globally to your jest config:
 }
 ```
 
-
-
 ## API
 
 ```js
 type Options = {
   expand?: boolean,
-  colors?: boolean
+  colors?: boolean,
+  contextLines?: number
 };
 
 // default export
