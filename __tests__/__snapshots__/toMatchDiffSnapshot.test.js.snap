@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`proxies "colors" option(s) 1`] = `
-"[32m- First value[39m
+"Snapshot Diff:
+[32m- First value[39m
 [31m+ Second value[39m
 
 [33m@@ -5,8 +5,9 @@[39m
@@ -17,7 +18,8 @@ exports[`proxies "colors" option(s) 1`] = `
 `;
 
 exports[`proxies "contextLines" option(s) 1`] = `
-"- First value
+"Snapshot Diff:
+- First value
 + Second value
 
 @@ -10,0 +10,1 @@
@@ -25,7 +27,8 @@ exports[`proxies "contextLines" option(s) 1`] = `
 `;
 
 exports[`proxies "expand" option(s) 1`] = `
-"- First value
+"Snapshot Diff:
+- First value
 + Second value
 
   
@@ -44,7 +47,8 @@ exports[`proxies "expand" option(s) 1`] = `
 `;
 
 exports[`works with default options 1`] = `
-"- First value
+"Snapshot Diff:
+- First value
 + Second value
 
 @@ -5,8 +5,9 @@

@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`can colorize diff 1`] = `
-"[32m- First value[39m
+"Snapshot Diff:
+[32m- First value[39m
 [31m+ Second value[39m
 
 [33m@@ -5,8 +5,9 @@[39m
@@ -17,7 +18,8 @@ exports[`can colorize diff 1`] = `
 `;
 
 exports[`can expand diff 1`] = `
-"- First value
+"Snapshot Diff:
+- First value
 + Second value
 
   
@@ -36,7 +38,8 @@ exports[`can expand diff 1`] = `
 `;
 
 exports[`can use contextLines on diff 1`] = `
-"- First value
+"Snapshot Diff:
+- First value
 + Second value
 
 @@ -10,0 +10,1 @@
@@ -44,7 +47,8 @@ exports[`can use contextLines on diff 1`] = `
 `;
 
 exports[`can use contextLines with React components 1`] = `
-"- <Component test=\\"say\\" />
+"Snapshot Diff:
+- <Component test=\\"say\\" />
 + <Component test=\\"my name\\" />
 
 @@ -6,1 +6,1 @@
@@ -59,7 +63,8 @@ exports[`can use contextLines with React components 1`] = `
 `;
 
 exports[`collapses diffs and strips ansi by default 1`] = `
-"- First value
+"Snapshot Diff:
+- First value
 + Second value
 
 @@ -5,8 +5,9 @@
@@ -75,7 +80,8 @@ exports[`collapses diffs and strips ansi by default 1`] = `
 `;
 
 exports[`detects React components 1`] = `
-"- <Component test=\\"say\\" />
+"Snapshot Diff:
+- <Component test=\\"say\\" />
 + <Component test=\\"my name\\" />
 
 @@ -1,14 +1,14 @@
@@ -111,7 +117,8 @@ exports[`detects React components 1`] = `
 `;
 
 exports[`diffs short strings 1`] = `
-"- First value
+"Snapshot Diff:
+- First value
 + Second value
 
  

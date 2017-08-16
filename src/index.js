@@ -21,6 +21,8 @@ const defaultOptions = {
   contextLines: -1, // Forces to use default from Jest
 };
 
+const SNAPSHOT_TITLE = 'Snapshot Diff:\n';
+
 const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
   let difference;
   const mergedOptions = Object.assign({}, defaultOptions, options);
@@ -33,10 +35,11 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
 
   if (!mergedOptions.colors) {
     const stripAnsi = require('strip-ansi');
-    return stripAnsi(difference);
+
+    difference = stripAnsi(difference);
   }
 
-  return difference;
+  return SNAPSHOT_TITLE + difference;
 };
 
 const isReactComponent = (value: any) =>
@@ -71,6 +74,18 @@ function toMatchDiffSnapshot(valueA: any, valueB: any, options?: Options) {
   return snapshot.toMatchSnapshot.call(this, difference);
 }
 
+function getSnapshotDiffSerializer() {
+  return {
+    test(value: any) {
+      return typeof value === 'string' && value.indexOf(SNAPSHOT_TITLE) === 0;
+    },
+    print(value: any) {
+      return value;
+    },
+  };
+}
+
 module.exports = snapshotDiff;
 module.exports.snapshotDiff = snapshotDiff;
 module.exports.toMatchDiffSnapshot = toMatchDiffSnapshot;
+module.exports.getSnapshotDiffSerializer = getSnapshotDiffSerializer;
