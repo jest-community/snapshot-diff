@@ -127,6 +127,8 @@ type Options = {
 
 // default export
 snapshotDiff(valueA: any, valueB: any, options?: Options) => string
+// custom matcher
+expect(valueA: any).toMatchDiffSnapshot(valueB: any, options?: Options) => void
 ```
 
 ### Options
