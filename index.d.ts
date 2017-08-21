@@ -7,7 +7,13 @@ type DiffOptions = {
 };
 
 declare namespace jest {
-  interface Matchers {
-    toMatchDiffSnapshot(valueB: any, options?: DiffOptions): boolean
+  interface Matchers<R> {
+    toMatchDiffSnapshot(valueB: any, options?: DiffOptions): R
   }
+}
+
+declare module 'snapshot-diff' {
+  function diff(a: any, b: any, options?: DiffOptions): string;
+  namespace diff {}
+  export = diff;
 }
