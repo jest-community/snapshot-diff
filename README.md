@@ -110,9 +110,9 @@ test('snapshot difference between 2 objects', () => {
 
 ```json
 "jest": {
-    "snapshotSerializers": [
-        "<rootDir>/node_modules/snapshot-diff/serializer.js"
-    ]
+  "snapshotSerializers": [
+    "<rootDir>/node_modules/snapshot-diff/serializer.js"
+  ]
 }
 ```
 
