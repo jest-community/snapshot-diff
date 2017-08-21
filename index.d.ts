@@ -13,7 +13,7 @@ declare namespace jest {
 }
 
 declare module 'snapshot-diff' {
-  function diff(a: any, b: any): string;
+  function diff(a: any, b: any, options?: DiffOptions): string;
   namespace diff {}
   export = diff;
 }
