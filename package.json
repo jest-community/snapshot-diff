@@ -1,6 +1,6 @@
 {
   "name": "snapshot-diff",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Diffing Jest snapshots utility",
   "main": "build/index.js",
   "typings": "index.d.ts",
