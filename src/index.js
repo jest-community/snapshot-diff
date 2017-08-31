@@ -49,8 +49,8 @@ function diffStrings(valueA: any, valueB: any, options: Options) {
   return diff(valueA, valueB, {
     expand: options.expand,
     contextLines: options.contextLines,
-    aAnnotation: 'First value',
-    bAnnotation: 'Second value',
+    aAnnotation: options.aAnnotation || 'First value',
+    bAnnotation: options.bAnnotation || 'Second value',
   });
 }
 
