@@ -13,12 +13,16 @@ type Options = {
   expand?: boolean,
   colors?: boolean,
   contextLines?: number,
+  aAnnotation?: string,
+  bAnnotation?: string,
 };
 
 const defaultOptions = {
   expand: false,
   colors: false,
   contextLines: -1, // Forces to use default from Jest
+  aAnnotation: 'First value',
+  bAnnotation: 'Second value',
 };
 
 const SNAPSHOT_TITLE = 'Snapshot Diff:\n';
@@ -49,8 +53,8 @@ function diffStrings(valueA: any, valueB: any, options: Options) {
   return diff(valueA, valueB, {
     expand: options.expand,
     contextLines: options.contextLines,
-    aAnnotation: options.aAnnotation || 'First value',
-    bAnnotation: options.bAnnotation || 'Second value',
+    aAnnotation: options.aAnnotation,
+    bAnnotation: options.bAnnotation,
   });
 }
 
