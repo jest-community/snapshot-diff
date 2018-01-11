@@ -38,12 +38,8 @@ class Component extends React.Component {
         <span />
         <span />
         <span />
-        <span>
-          {this.props.test}
-        </span>
-        <span>
-          {this.props.test}
-        </span>
+        <span>{this.props.test}</span>
+        <span>{this.props.test}</span>
         <span />
         <span />
         <span />
@@ -64,9 +60,7 @@ class Component extends React.Component {
         <span />
         <span />
         <span />
-        <span>
-          {this.props.test}
-        </span>
+        <span>{this.props.test}</span>
         <span />
         <span />
         <span />

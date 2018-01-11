@@ -20,9 +20,9 @@
     "react-test-renderer": ">=15"
   },
   "dependencies": {
-    "jest-diff": "test",
-    "jest-snapshot": "test",
-    "pretty-format": "^20.0.3",
+    "jest-diff": "^22.0.6",
+    "jest-snapshot": "^22.0.6",
+    "pretty-format": "^22.0.6",
     "strip-ansi": "^4.0.0"
   },
   "devDependencies": {
@@ -30,10 +30,10 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^4.3.0",
+    "eslint": "~4.13.0",
     "eslint-config-callstack-io": "^0.4.0",
     "flow-bin": "^0.51.0",
-    "jest": "test",
+    "jest": "^22.0.6",
     "react": "^15.6.1",
     "react-test-renderer": "^15.6.1"
   }
