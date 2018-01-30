@@ -16,8 +16,7 @@
   },
   "repository": "https://github.com/thymikee/snapshot-diff",
   "peerDependencies": {
-    "jest": ">=16",
-    "react-test-renderer": ">=15"
+    "jest": ">=16"
   },
   "dependencies": {
     "jest-diff": "^22.0.6",
