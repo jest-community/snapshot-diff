@@ -60,7 +60,7 @@ function diffStrings(valueA: any, valueB: any, options: Options) {
 
 function requireReactTestRenderer() {
   try {
-    return require('react-test-renderer');
+    return require('react-test-renderer'); // eslint-disable-line import/no-extraneous-dependencies
   } catch (error) {
     throw new Error(
       `Failed to load optional module "react-test-renderer". ` +
