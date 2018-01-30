@@ -149,3 +149,26 @@ test('can use contextLines with React components', () => {
     })
   ).toMatchSnapshot();
 });
+
+describe('failed optional deps', () => {
+  beforeEach(() => {
+    jest.mock('react-test-renderer', () => {
+      // $FlowFixMe -- this is intended.
+      require('non-existent-module-for-testing'); // eslint-disable-line
+    });
+  });
+
+  afterEach(() => {
+    jest.resetModules();
+  });
+
+  test('throws with sensible message on missing react-test-renderer', () => {
+    const testComponentA = <Component test="a" />;
+    const testComponentB = <Component test="b" />;
+    try {
+      snapshotDiff(testComponentA, testComponentB);
+    } catch (error) {
+      expect(error.message).toMatchSnapshot();
+    }
+  });
+});

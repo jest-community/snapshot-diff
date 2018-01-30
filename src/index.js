@@ -58,8 +58,20 @@ function diffStrings(valueA: any, valueB: any, options: Options) {
   });
 }
 
+function requireReactTestRenderer() {
+  try {
+    return require('react-test-renderer');
+  } catch (error) {
+    throw new Error(
+      `Failed to load optional module "react-test-renderer". ` +
+        `Are you sure that it's listed in your project's dependencies?\n` +
+        `${error.message}`
+    );
+  }
+}
+
 function diffReactComponents(valueA: any, valueB: any, options: Options) {
-  const renderer = require('react-test-renderer');
+  const renderer = requireReactTestRenderer();
   const reactValueA = renderer.create(valueA).toJSON();
   const reactValueB = renderer.create(valueB).toJSON();
   const prettyFormatOptions = { plugins: [ReactElement], min: true };

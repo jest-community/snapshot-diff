@@ -129,3 +129,8 @@ exports[`diffs short strings 1`] = `
 +   abcy
     "
 `;
+
+exports[`failed optional deps throws with sensible message on missing react-test-renderer 1`] = `
+"Failed to load optional module \\"react-test-renderer\\". Are you sure that it's listed in your project's dependencies?
+Cannot find module 'non-existent-module-for-testing' from 'snapshotDiff.test.js'"
+`;
