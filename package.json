@@ -30,11 +30,11 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
-    "eslint": "~4.13.0",
-    "eslint-config-callstack-io": "^0.4.0",
-    "flow-bin": "^0.51.0",
+    "eslint": "~4.16.0",
+    "eslint-config-callstack-io": "^1.1.1",
+    "flow-bin": "^0.64.0",
     "jest": "^22.0.6",
-    "react": "^15.6.1",
-    "react-test-renderer": "^15.6.1"
+    "react": "^16.2.0",
+    "react-test-renderer": "^16.2.0"
   }
 }

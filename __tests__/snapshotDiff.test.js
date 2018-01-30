@@ -31,7 +31,11 @@ const b = `
     script
 `;
 
-class Component extends React.Component {
+type Props = {
+  test: string,
+};
+
+class Component extends React.Component<Props> {
   render() {
     return (
       <div>
