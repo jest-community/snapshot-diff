@@ -8,6 +8,7 @@ const prettyFormat = require('pretty-format');
 
 const { ReactElement } = prettyFormat.plugins;
 const reactElement = Symbol.for('react.element');
+const MULTILINE_REGEXP = /[\r\n]/;
 
 type Options = {
   expand?: boolean,
@@ -50,6 +51,15 @@ const isReactComponent = (value: any) =>
   value && value.$$typeof === reactElement;
 
 function diffStrings(valueA: any, valueB: any, options: Options) {
+  const multiline =
+    MULTILINE_REGEXP.test(valueA) && MULTILINE_REGEXP.test(valueB);
+
+  // jest-diff doesn't support single-line values, but we want to
+  if (typeof valueA === 'string' && typeof valueB === 'string' && !multiline) {
+    valueA += '\n'; // eslint-disable-line no-param-reassign
+    valueB += '\n'; // eslint-disable-line no-param-reassign
+  }
+
   return diff(valueA, valueB, {
     expand: options.expand,
     contextLines: options.contextLines,
