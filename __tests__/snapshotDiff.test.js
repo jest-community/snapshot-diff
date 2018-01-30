@@ -37,6 +37,10 @@ type Props = {
 
 class Component extends React.Component<Props> {
   render() {
+    const dummySpans = Array(20)
+      .fill(0)
+      .map((_, index) => <span key={String(index)} />);
+
     return (
       <div>
         <span />
@@ -44,71 +48,9 @@ class Component extends React.Component<Props> {
         <span />
         <span>{this.props.test}</span>
         <span>{this.props.test}</span>
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
+        {dummySpans}
         <span>{this.props.test}</span>
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
+        {dummySpans}
       </div>
     );
   }
