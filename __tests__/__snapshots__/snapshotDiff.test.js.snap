@@ -5,16 +5,17 @@ exports[`can colorize diff 1`] = `
 [32m- First value[39m
 [31m+ Second value[39m
 
-[33m@@ -5,8 +5,9 @@[39m
-[33m[39m[2m     some[22m
-[2m     some[22m
-[2m     some[22m
-[2m     some[22m
-[2m     not[22m
-[31m+    so[39m
-[2m     very[22m
-[2m     long[22m
-[2m     script[22m"
+[33m@@ -5,9 +5,10 @@[39m
+[2m      some[22m
+[2m      some[22m
+[2m      some[22m
+[2m      some[22m
+[2m      not[22m
+[31m+     so[39m
+[2m      very[22m
+[2m      long[22m
+[2m      script[22m
+[2m  [22m"
 `;
 
 exports[`can expand diff 1`] = `
@@ -34,7 +35,8 @@ exports[`can expand diff 1`] = `
 +     so
       very
       long
-      script"
+      script
+  "
 `;
 
 exports[`can use contextLines on diff 1`] = `
@@ -43,7 +45,7 @@ exports[`can use contextLines on diff 1`] = `
 + Second value
 
 @@ -10,0 +10,1 @@
-+    so"
++     so"
 `;
 
 exports[`can use contextLines with React components 1`] = `
@@ -52,14 +54,14 @@ exports[`can use contextLines with React components 1`] = `
 + <Component test=\\"my name\\" />
 
 @@ -6,1 +6,1 @@
--    say
-+    my name
+-     say
++     my name
 @@ -9,1 +9,1 @@
--    say
-+    my name
+-     say
++     my name
 @@ -32,1 +32,1 @@
--    say
-+    my name"
+-     say
++     my name"
 `;
 
 exports[`collapses diffs and strips ansi by default 1`] = `
@@ -67,16 +69,17 @@ exports[`collapses diffs and strips ansi by default 1`] = `
 - First value
 + Second value
 
-@@ -5,8 +5,9 @@
-     some
-     some
-     some
-     some
-     not
-+    so
-     very
-     long
-     script"
+@@ -5,9 +5,10 @@
+      some
+      some
+      some
+      some
+      not
++     so
+      very
+      long
+      script
+  "
 `;
 
 exports[`detects React components 1`] = `
@@ -85,35 +88,35 @@ exports[`detects React components 1`] = `
 + <Component test=\\"my name\\" />
 
 @@ -1,14 +1,14 @@
- <div>
-   <span />
-   <span />
-   <span />
-   <span>
--    say
-+    my name
-   </span>
-   <span>
--    say
-+    my name
-   </span>
-   <span />
-   <span />
-   <span />
-   <span />
+  <div>
+    <span />
+    <span />
+    <span />
+    <span>
+-     say
++     my name
+    </span>
+    <span>
+-     say
++     my name
+    </span>
+    <span />
+    <span />
+    <span />
+    <span />
 @@ -27,11 +27,11 @@
-   <span />
-   <span />
-   <span />
-   <span />
-   <span>
--    say
-+    my name
-   </span>
-   <span />
-   <span />
-   <span />
-   <span />"
+    <span />
+    <span />
+    <span />
+    <span />
+    <span>
+-     say
++     my name
+    </span>
+    <span />
+    <span />
+    <span />
+    <span />"
 `;
 
 exports[`diffs short strings 1`] = `
@@ -121,8 +124,8 @@ exports[`diffs short strings 1`] = `
 - First value
 + Second value
 
- 
--  abcx
-+  abcy
-   "
+  
+-   abcx
++   abcy
+    "
 `;
