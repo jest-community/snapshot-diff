@@ -1,4 +1,6 @@
 # snapshot-diff
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jest-community/snapshot-diff.svg)](https://greenkeeper.io/)
 [![npm version](https://badge.fury.io/js/snapshot-diff.svg)](https://badge.fury.io/js/snapshot-diff)
 
 Diffing snapshot utility for Jest. Takes two values, and return their difference as a string, ready to be snapshoted with `toMatchSnapshot()`.
