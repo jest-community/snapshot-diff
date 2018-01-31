@@ -58,8 +58,24 @@ function diffStrings(valueA: any, valueB: any, options: Options) {
   });
 }
 
+function requireReactTestRenderer() {
+  try {
+    return require('react-test-renderer'); // eslint-disable-line import/no-extraneous-dependencies
+  } catch (error) {
+    if (error.code === 'MODULE_NOT_FOUND') {
+      throw new Error(
+        `Failed to load optional module "react-test-renderer". ` +
+          `If you need to compare React elements, please add "react-test-renderer" to your ` +
+          `project's dependencies.\n` +
+          `${error.message}`
+      );
+    }
+    throw error;
+  }
+}
+
 function diffReactComponents(valueA: any, valueB: any, options: Options) {
-  const renderer = require('react-test-renderer');
+  const renderer = requireReactTestRenderer();
   const reactValueA = renderer.create(valueA).toJSON();
   const reactValueB = renderer.create(valueB).toJSON();
   const prettyFormatOptions = { plugins: [ReactElement], min: true };
