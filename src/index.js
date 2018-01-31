@@ -62,11 +62,15 @@ function requireReactTestRenderer() {
   try {
     return require('react-test-renderer'); // eslint-disable-line import/no-extraneous-dependencies
   } catch (error) {
-    throw new Error(
-      `Failed to load optional module "react-test-renderer". ` +
-        `Are you sure that it's listed in your project's dependencies?\n` +
-        `${error.message}`
-    );
+    if (error.code === 'MODULE_NOT_FOUND') {
+      throw new Error(
+        `Failed to load optional module "react-test-renderer". ` +
+          `If you need to compare React elements, please add "react-test-renderer" to your ` +
+          `project's dependencies.\n` +
+          `${error.message}`
+      );
+    }
+    throw error;
   }
 }
 
