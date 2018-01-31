@@ -51,12 +51,11 @@ const isReactComponent = (value: any) =>
   value && value.$$typeof === reactElement;
 
 function diffStrings(valueA: any, valueB: any, options: Options) {
-  const multiline =
-    MULTILINE_REGEXP.test(valueA) && MULTILINE_REGEXP.test(valueB);
-
   // jest-diff doesn't support single-line values, but we want to
-  if (typeof valueA === 'string' && typeof valueB === 'string' && !multiline) {
+  if (typeof valueA === 'string' && !MULTILINE_REGEXP.test(valueA)) {
     valueA += '\n'; // eslint-disable-line no-param-reassign
+  }
+  if (typeof valueB === 'string' && !MULTILINE_REGEXP.test(valueB)) {
     valueB += '\n'; // eslint-disable-line no-param-reassign
   }
 

@@ -58,6 +58,8 @@ class Component extends React.Component<Props> {
 
 test('supports diffing single-line strings', () => {
   expect(snapshotDiff('foo', 'bar')).toMatchSnapshot();
+  expect(snapshotDiff('foo\n', 'bar')).toMatchSnapshot();
+  expect(snapshotDiff('foo', 'bar\n')).toMatchSnapshot();
 });
 
 test('collapses diffs and strips ansi by default', () => {

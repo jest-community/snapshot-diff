@@ -144,3 +144,23 @@ exports[`supports diffing single-line strings 1`] = `
 + bar
   "
 `;
+
+exports[`supports diffing single-line strings 2`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+- foo
++ bar
+  "
+`;
+
+exports[`supports diffing single-line strings 3`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+- foo
++ bar
+  "
+`;
