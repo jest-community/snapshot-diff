@@ -165,10 +165,8 @@ describe('failed optional deps', () => {
   test('throws with sensible message on missing react-test-renderer', () => {
     const testComponentA = <Component test="a" />;
     const testComponentB = <Component test="b" />;
-    try {
-      snapshotDiff(testComponentA, testComponentB);
-    } catch (error) {
-      expect(error.message).toMatchSnapshot();
-    }
+    expect(() =>
+      snapshotDiff(testComponentA, testComponentB)
+    ).toThrowErrorMatchingSnapshot();
   });
 });
