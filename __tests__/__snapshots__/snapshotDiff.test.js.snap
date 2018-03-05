@@ -134,3 +134,33 @@ exports[`failed optional deps throws with sensible message on missing react-test
 "Failed to load optional module \\"react-test-renderer\\". If you need to compare React elements, please add \\"react-test-renderer\\" to your project's dependencies.
 Cannot find module 'non-existent-module-for-testing' from 'snapshotDiff.test.js'"
 `;
+
+exports[`supports diffing single-line strings 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+- foo
++ bar
+  "
+`;
+
+exports[`supports diffing single-line strings 2`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+- foo
++ bar
+  "
+`;
+
+exports[`supports diffing single-line strings 3`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+- foo
++ bar
+  "
+`;
