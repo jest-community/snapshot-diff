@@ -31,7 +31,7 @@
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.16.0",
     "eslint-config-callstack-io": "^1.1.1",
-    "flow-bin": "^0.66.0",
+    "flow-bin": "^0.67.1",
     "jest": "^22.0.6",
     "react": "^16.2.0",
     "react-test-renderer": "^16.2.0"
