@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "jest-diff": "^22.0.6",
-    "jest-snapshot": "^22.0.6",
+    "jest-snapshot": "^23.0.0",
     "pretty-format": "^22.0.6",
     "strip-ansi": "^4.0.0"
   },
