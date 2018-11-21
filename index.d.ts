@@ -4,6 +4,8 @@ type DiffOptions = {
   expand?: boolean
   colors?: boolean
   contextLines?: number
+  aAnnotation?: string
+  bAnnotation?: string
 }
 
 declare namespace jest {
