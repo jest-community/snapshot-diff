@@ -22,7 +22,7 @@
     "jest-diff": "^23.0.1",
     "jest-snapshot": "^23.0.1",
     "pretty-format": "^23.0.1",
-    "strip-ansi": "^4.0.0"
+    "strip-ansi": "^5.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
