@@ -29,7 +29,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^4.16.0",
+    "eslint": "^5.0.0",
     "eslint-config-callstack-io": "^1.1.1",
     "flow-bin": "^0.73.0",
     "jest": "^23.0.1",
