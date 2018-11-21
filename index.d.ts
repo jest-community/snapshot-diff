@@ -27,6 +27,12 @@ declare module "snapshot-diff" {
      * make it available via `expect.extend({ toMatchDiffSnapshot })`.
      */
     toMatchDiffSnapshot: (newObject: any) => void
+    /**
+     * By default Jest adds extra quotes around strings so it makes diff 
+     * snapshots of objects too noisy. To fix this – snapshot-diff comes
+     * with custom serializer.
+     */
+    getSnapshotDiffSerializer: () => jest.SnapshotSerializerPlugin
   }
   const diff: SnapshotDiff
   export = diff
