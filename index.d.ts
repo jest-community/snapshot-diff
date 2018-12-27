@@ -28,7 +28,7 @@ declare module "snapshot-diff" {
      * Allows you to pull out toMatchDiffSnapshot and
      * make it available via `expect.extend({ toMatchDiffSnapshot })`.
      */
-    toMatchDiffSnapshot: (newObject: any) => void
+    toMatchDiffSnapshot: jest.CustomMatcher
     /**
      * By default Jest adds extra quotes around strings so it makes diff 
      * snapshots of objects too noisy. To fix this – snapshot-diff comes
