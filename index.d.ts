@@ -14,7 +14,7 @@ declare namespace jest {
      * Compare the difference between the actual in the `expect()`
      * vs the object inside `valueB` with some extra options.
      */
-    toMatchDiffSnapshot(valueB: any, options?: DiffOptions): R
+    toMatchDiffSnapshot(valueB: any, options?: DiffOptions, testName?: string): R
   }
 }
 
@@ -30,7 +30,7 @@ declare module "snapshot-diff" {
      */
     toMatchDiffSnapshot: jest.CustomMatcher
     /**
-     * By default Jest adds extra quotes around strings so it makes diff 
+     * By default Jest adds extra quotes around strings so it makes diff
      * snapshots of objects too noisy. To fix this – snapshot-diff comes
      * with custom serializer.
      */

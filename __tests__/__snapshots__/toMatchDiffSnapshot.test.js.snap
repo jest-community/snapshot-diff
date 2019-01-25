@@ -48,6 +48,24 @@ exports[`proxies "expand" option(s) 1`] = `
   "
 `;
 
+exports[`works with custom name: slim 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -5,9 +5,10 @@
+      some
+      some
+      some
+      some
+      not
++     so
+      very
+      long
+      script
+  "
+`;
+
 exports[`works with default options 1`] = `
 "Snapshot Diff:
 - First value
