@@ -1,3 +1,0 @@
-{
-  "presets": ["babel-preset-react", "flow", ["env", {"targets": {"node": 4}}]]
-}
