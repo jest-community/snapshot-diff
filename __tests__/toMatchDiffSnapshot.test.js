@@ -47,3 +47,8 @@ test('works with default options', () => {
     });
   }
 );
+
+test('works with custom name', () => {
+  // $FlowFixMe
+  expect(a).toMatchDiffSnapshot(b, {}, 'slim');
+});
