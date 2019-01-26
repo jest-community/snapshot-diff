@@ -104,14 +104,13 @@ test('snapshot difference between 2 objects', () => {
 
 ...or add it globally to your jest config:
 
-```json
-{
-  "jest": {
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/snapshot-diff/serializer.js"
-    ]
-  }
-}
+```javascript
+// jest.config.js
+module.exports = {
+  snapshotSerializers: [
+    require.resolve('snapshot-diff/serializer.js'),
+  ],
+};
 ```
 
 ## API
