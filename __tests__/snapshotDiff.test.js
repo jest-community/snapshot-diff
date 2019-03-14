@@ -30,6 +30,51 @@ const b = `
     long
     script
 `;
+const noIndentA = `
+some
+some
+some
+some
+some
+foo
+some
+some
+some
+some
+some
+some
+some
+some
+some
+some
+not
+very
+long
+script
+`;
+const noIndentB = `
+some
+some
+some
+some
+some
+bar
+some
+some
+some
+some
+some
+some
+some
+some
+some
+some
+not
+so
+very
+long
+script
+`;
 
 type Props = {
   test: string,
@@ -152,6 +197,10 @@ test('can use contextLines with React components', () => {
       contextLines: 0,
     })
   ).toMatchSnapshot();
+});
+
+test('can omitPatchMarks on diff', () => {
+  expect(snapshotDiff(noIndentA, noIndentB, { omitPatchMarks: true })).toMatchSnapshot();
 });
 
 describe('failed optional deps', () => {
