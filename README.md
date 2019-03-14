@@ -134,7 +134,7 @@ expect(valueA: any).toMatchDiffSnapshot(valueB: any, options?: Options, testName
 - `colors: boolean` (default: `false`) – preserve color information from Jest diff
 - `contextLines: number` (default: 5) - number of context lines to be shown at the beginning and at the end of a snapshot
 - `omitPatchMarks: boolean` (default: `false`) - prevent line number patch marks from appearing in
-diffs. This can be helpful when diffs are breaking only because of the patch marks. Changes `@@ -1,1 +1,2 @@` to `@@ --- --- @`
+diffs. This can be helpful when diffs are breaking only because of the patch marks. Changes `@@ -1,1 +1,2 @@` to `@@ --- --- @`.
 - `aAnnotation: string` (default: `'First Value'`) - the annotation indicating from which serialization the `-` lines are
 - `bAnnotation: string` (default: `'Second Value'`) - the annotation indicating from which serialization the `+` lines are
 
