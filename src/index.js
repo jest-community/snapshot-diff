@@ -44,8 +44,8 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
     difference = stripAnsi(difference);
   }
 
-  if (mergedOptions.omitPatchMarks) {
-    difference = difference.replace(/^@.*/gm, '-------------')
+  if (mergedOptions.omitPatchMarks && !mergedOptions.expand) {
+    difference = difference.replace(/^@@ -[1-9]+,[1-9]+ \+[1-9]+,[1-9]+ @@$/gm, '@@ --- --- @@')
   }
 
   return SNAPSHOT_TITLE + difference;
