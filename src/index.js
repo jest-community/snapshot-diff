@@ -21,7 +21,7 @@ const defaultOptions = {
   expand: false,
   colors: false,
   contextLines: -1, // Forces to use default from Jest
-  omitPatchMarks: false,
+  stablePatchmarks: false,
   aAnnotation: 'First value',
   bAnnotation: 'Second value',
 };
@@ -44,8 +44,8 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
     difference = stripAnsi(difference);
   }
 
-  if (mergedOptions.omitPatchMarks && !mergedOptions.expand) {
-    difference = difference.replace(/^@@ -[1-9]+,[1-9]+ \+[1-9]+,[1-9]+ @@$/gm, '@@ --- --- @@')
+  if (mergedOptions.stablePatchmarks && !mergedOptions.expand) {
+    difference = difference.replace(/^@@ -[0-9]+,[0-9]+ \+[0-9]+,[0-9]+ @@$/gm, '@@ --- --- @@')
   }
 
   return SNAPSHOT_TITLE + difference;

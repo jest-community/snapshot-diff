@@ -39,37 +39,6 @@ exports[`can expand diff 1`] = `
   "
 `;
 
-exports[`can omitPatchMarks on diff 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
--------------
-  @some
-  @some
-  @some
-  @some
-  @some
-- @foo
-+ @bar
-  @some
-  @some
-  @some
-  @some
-  @some
--------------
-  @some
-  @some
-  @some
-  @some
-  @not
-+ @so
-  @very
-  @long
-  @script
-  "
-`;
-
 exports[`can use contextLines on diff 1`] = `
 "Snapshot Diff:
 - First value
@@ -93,6 +62,37 @@ exports[`can use contextLines with React components 1`] = `
 @@ -32,1 +32,1 @@
 -     say
 +     my name"
+`;
+
+exports[`can use stablePatchmarks on diff 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+  @some
+  @some
+  @some
+  @some
+  @some
+- @foo
++ @bar
+  @some
+  @some
+  @some
+  @some
+  @some
+@@ --- --- @@
+  @some
+  @some
+  @some
+  @some
+  @not
++ @so
+  @very
+  @long
+  @script
+  "
 `;
 
 exports[`collapses diffs and strips ansi by default 1`] = `
