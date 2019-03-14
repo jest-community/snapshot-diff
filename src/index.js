@@ -17,12 +17,16 @@ type Options = {
   bAnnotation?: string,
 };
 
-const defaultOptions = {
+let defaultOptions = {
   expand: false,
   colors: false,
   contextLines: -1, // Forces to use default from Jest
   aAnnotation: 'First value',
   bAnnotation: 'Second value',
+};
+
+const setDefaultOptions = (options?: Options) => {
+  defaultOptions = Object.assign({}, defaultOptions, options);
 };
 
 const SNAPSHOT_TITLE = 'Snapshot Diff:\n';
@@ -111,6 +115,7 @@ function getSnapshotDiffSerializer() {
 }
 
 module.exports = snapshotDiff;
+module.exports.setDefaultOptions = setDefaultOptions;
 module.exports.snapshotDiff = snapshotDiff;
 module.exports.toMatchDiffSnapshot = toMatchDiffSnapshot;
 module.exports.getSnapshotDiffSerializer = getSnapshotDiffSerializer;

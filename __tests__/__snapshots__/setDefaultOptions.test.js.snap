@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uses default options 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -5,9 +5,10 @@
+      some
+      some
+      some
+      some
+      not
++     so
+      very
+      long
+      script
+  "
+`;
+
+exports[`uses the updated default options 1`] = `
+"Snapshot Diff:
+[32m- First string[39m
+[31m+ Second string[39m
+
+[33m@@ -10,0 +10,1 @@[39m
+[31m+     so[39m"
+`;
