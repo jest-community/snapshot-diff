@@ -45,28 +45,28 @@ exports[`can omitPatchMarks on diff 1`] = `
 + Second value
 
 -------------
-  some
-  some
-  some
-  some
-  some
-- foo
-+ bar
-  some
-  some
-  some
-  some
-  some
+  @some
+  @some
+  @some
+  @some
+  @some
+- @foo
++ @bar
+  @some
+  @some
+  @some
+  @some
+  @some
 -------------
-  some
-  some
-  some
-  some
-  not
-+ so
-  very
-  long
-  script
+  @some
+  @some
+  @some
+  @some
+  @not
++ @so
+  @very
+  @long
+  @script
   "
 `;
 
