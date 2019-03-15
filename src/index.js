@@ -21,6 +21,7 @@ const defaultOptions = {
   expand: false,
   colors: false,
   contextLines: -1, // Forces to use default from Jest
+  stablePatchmarks: false,
   aAnnotation: 'First value',
   bAnnotation: 'Second value',
 };
@@ -41,6 +42,10 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
     const stripAnsi = require('strip-ansi');
 
     difference = stripAnsi(difference);
+  }
+
+  if (mergedOptions.stablePatchmarks && !mergedOptions.expand) {
+    difference = difference.replace(/^@@ -[0-9]+,[0-9]+ \+[0-9]+,[0-9]+ @@$/gm, '@@ --- --- @@')
   }
 
   return SNAPSHOT_TITLE + difference;
