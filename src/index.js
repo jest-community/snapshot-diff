@@ -9,13 +9,14 @@ const prettyFormat = require('pretty-format');
 const { ReactElement } = prettyFormat.plugins;
 const reactElement = Symbol.for('react.element');
 
-type Options = {
+type Options = {|
   expand?: boolean,
   colors?: boolean,
   contextLines?: number,
+  stablePatchmarks?: boolean,
   aAnnotation?: string,
   bAnnotation?: string,
-};
+|};
 
 const defaultOptions = {
   expand: false,
@@ -30,7 +31,7 @@ const SNAPSHOT_TITLE = 'Snapshot Diff:\n';
 
 const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
   let difference;
-  const mergedOptions = Object.assign({}, defaultOptions, options);
+  const mergedOptions = { ...defaultOptions, ...options };
 
   if (isReactComponent(valueA) && isReactComponent(valueB)) {
     difference = diffReactComponents(valueA, valueB, mergedOptions);
