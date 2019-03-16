@@ -200,7 +200,9 @@ test('can use contextLines with React components', () => {
 });
 
 test('can use stablePatchmarks on diff', () => {
-  expect(snapshotDiff(noIndentA, noIndentB, { stablePatchmarks: true })).toMatchSnapshot();
+  expect(
+    snapshotDiff(noIndentA, noIndentB, { stablePatchmarks: true })
+  ).toMatchSnapshot();
 });
 
 describe('failed optional deps', () => {
