@@ -13,25 +13,25 @@ type Options = {|
   expand?: boolean,
   colors?: boolean,
   contextLines?: number,
+  stablePatchmarks?: boolean,
   aAnnotation?: string,
   bAnnotation?: string,
-  stablePatchmarks?: boolean,
 |};
 
 const defaultOptions = {
   expand: false,
   colors: false,
   contextLines: -1, // Forces to use default from Jest
+  stablePatchmarks: false,
   aAnnotation: 'First value',
   bAnnotation: 'Second value',
-  stablePatchmarks: false,
 };
 
 const SNAPSHOT_TITLE = 'Snapshot Diff:\n';
 
 const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
   let difference;
-  const mergedOptions = Object.assign({}, defaultOptions, options);
+  const mergedOptions = { ...defaultOptions, ...options };
 
   if (isReactComponent(valueA) && isReactComponent(valueB)) {
     difference = diffReactComponents(valueA, valueB, mergedOptions);

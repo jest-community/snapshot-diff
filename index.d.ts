@@ -4,9 +4,9 @@ type DiffOptions = {
   expand?: boolean
   colors?: boolean
   contextLines?: number
+  stablePatchmarks?: boolean
   aAnnotation?: string
   bAnnotation?: string
-  stablePatchmarks?: boolean
 }
 
 declare namespace jest {
