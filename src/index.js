@@ -9,21 +9,22 @@ const prettyFormat = require('pretty-format');
 const { ReactElement } = prettyFormat.plugins;
 const reactElement = Symbol.for('react.element');
 
-type Options = {
+type Options = {|
   expand?: boolean,
   colors?: boolean,
   contextLines?: number,
   aAnnotation?: string,
   bAnnotation?: string,
-};
+  stablePatchmarks?: boolean,
+|};
 
 const defaultOptions = {
   expand: false,
   colors: false,
   contextLines: -1, // Forces to use default from Jest
-  stablePatchmarks: false,
   aAnnotation: 'First value',
   bAnnotation: 'Second value',
+  stablePatchmarks: false,
 };
 
 const SNAPSHOT_TITLE = 'Snapshot Diff:\n';

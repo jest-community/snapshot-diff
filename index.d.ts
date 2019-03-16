@@ -6,6 +6,7 @@ type DiffOptions = {
   contextLines?: number
   aAnnotation?: string
   bAnnotation?: string
+  stablePatchmarks?: boolean
 }
 
 declare namespace jest {
