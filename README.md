@@ -54,6 +54,12 @@ test('snapshot difference between 2 React components state', () => {
 });
 ```
 
+... alternatively import it once, for instance in your [tests setup file](https://jestjs.io/docs/en/configuration.html#setupfilesafterenv-array):
+
+```js
+require('snapshot-diff/extend-expect');
+```
+
 Produced snapshot:
 
 ```diff
