@@ -10,7 +10,7 @@ type DiffOptions = {
 }
 
 declare namespace jest {
-  interface Matchers<R> {
+  interface Matchers<R, T> {
     /**
      * Compare the difference between the actual in the `expect()`
      * vs the object inside `valueB` with some extra options.
