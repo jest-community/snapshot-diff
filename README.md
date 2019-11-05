@@ -93,6 +93,45 @@ exports[`snapshot difference between 2 React components state 1`] = `
 `;
 ```
 
+## Custom serializers
+
+By default, `snapshot-diff` uses a built in React serializer based on `react-test-renderer`. The
+[serializers](https://jestjs.io/docs/en/configuration#snapshotserializers-array-string) used can be set by calling
+`setSerializers` with an array of serializers to use. The order of serializers in this array may be important to you as
+serializers are tested in order until a match is found.
+
+`setSerializers` can be used to add new serializers for unsupported data types, or to set a different serializer
+for React components. If you want to keep the default React serializer in place, don't forget to add the default
+serializers to your list of serializers!
+
+### Adding a new custom serializer
+
+```js
+const snapshotDiff = require('snapshot-diff');
+const myCustomSerializer = require('./my-custom-serializer');
+
+snapshotDiff.setSerializers([
+  ...snapshotDiff.defaultSerializers, // use default React serializer - add this if you want to serialise React components!
+  myCustomSerializer
+]);
+```
+
+### Serializing React components with a different serializer
+
+You can replace the default React serializer by omitting it from the serializer list. The following uses enzymes to-json
+serializer instead:
+
+```js
+const snapshotDiff = require('snapshot-diff');
+const enzymeToJson = require('enzyme-to-json/serializer');
+const myCustomSerializer = require('./my-custom-serializer');
+
+snapshotDiff.setSerializers([
+  enzymeToJson, // using enzymes serializer instead
+  myCustomSerializer
+]);
+```
+
 ## Snapshot serializer
 
 By default Jest adds extra quotes around strings so it makes diff snapshots of objects too noisy.
