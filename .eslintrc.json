@@ -3,6 +3,7 @@
   "rules": {
     "global-require": 0,
     "flowtype/no-weak-types": 0,
-    "strict": [0, "global"]
+    "strict": [0, "global"],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
   }
 }

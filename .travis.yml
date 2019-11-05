@@ -7,7 +7,7 @@ before_install:
 install: yarn --ignore-engines
 before_script: greenkeeper-lockfile-update
 script:
-  - yarn lint && yarn flow && yarn test
+  - yarn lint && yarn typecheck && yarn test
 after_script: greenkeeper-lockfile-upload
 jobs:
   include:

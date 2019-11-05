@@ -27,7 +27,7 @@ function getReactComponentSerializer() {
 
 const reactSerializer = {
   test: (value: any) => value && value.$$typeof === reactElement,
-  print: (value: any) => {
+  print: (value: any, _serializer?: any => any) => {
     const reactComponentSerializer = getReactComponentSerializer();
     return reactComponentSerializer(value);
   },

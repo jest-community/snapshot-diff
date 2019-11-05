@@ -41,8 +41,8 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
   if (matchingSerializer) {
     const { print, diffOptions } = matchingSerializer;
     const serializerOptions = diffOptions
-      ? diffOptions(valueA, valueB) || {}
-      : {};
+      ? diffOptions(valueA, valueB) || undefined
+      : undefined;
     difference = diffStrings(print(valueA, identity), print(valueB, identity), {
       ...mergedOptions,
       ...serializerOptions,

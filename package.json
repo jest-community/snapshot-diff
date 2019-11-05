@@ -9,7 +9,7 @@
   "scripts": {
     "build": "babel src --out-dir build",
     "lint": "eslint . --ext js --cache",
-    "flow": "flow check",
+    "typecheck": "flow check",
     "prepublish": "npm run build",
     "test": "jest",
     "watch": "babel -w src --out-dir build"
@@ -35,7 +35,7 @@
     "enzyme-to-json": "^3.4.0",
     "eslint": "^5.15.3",
     "eslint-config-callstack-io": "^1.1.1",
-    "flow-bin": "^0.102.0",
+    "flow-bin": "^0.111.1",
     "jest": "^24.0.0",
     "react": "^16.7.0",
     "react-dom": "16.7.0",
