@@ -25,8 +25,8 @@ declare namespace jest {
 
 interface Serializer {
   test: (value: any) => boolean;
-  print: (value: any, _serializer?: Function) => string;
-  diffOptions: (valueA: any, valueB: any) => DiffOptions;
+  print: (value: any, _serializer?: any) => any;
+  diffOptions?: (valueA: any, valueB: any) => DiffOptions;
 }
 
 declare module 'snapshot-diff' {
