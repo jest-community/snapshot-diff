@@ -15,7 +15,7 @@ exports[`can colorize diff 1`] = `
 [2m      very[22m
 [2m      long[22m
 [2m      script[22m
-[2m  [22m"
+"
 `;
 
 exports[`can expand diff 1`] = `
@@ -23,7 +23,7 @@ exports[`can expand diff 1`] = `
 - First value
 + Second value
 
-  
+
       some
       some
       some
@@ -36,7 +36,7 @@ exports[`can expand diff 1`] = `
       very
       long
       script
-  "
+"
 `;
 
 exports[`can use contextLines on diff 1`] = `
@@ -92,7 +92,7 @@ exports[`can use stablePatchmarks on diff 1`] = `
   @very
   @long
   @script
-  "
+"
 `;
 
 exports[`collapses diffs and strips ansi by default 1`] = `
@@ -110,7 +110,7 @@ exports[`collapses diffs and strips ansi by default 1`] = `
       very
       long
       script
-  "
+"
 `;
 
 exports[`detects React components 1`] = `
@@ -155,7 +155,7 @@ exports[`diffs short strings 1`] = `
 - First value
 + Second value
 
-  
+
 -   abcx
 +   abcy
     "
