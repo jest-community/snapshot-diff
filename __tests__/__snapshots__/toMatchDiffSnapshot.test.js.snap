@@ -15,7 +15,7 @@ exports[`proxies "colors" option(s) 1`] = `
 [2m      very[22m
 [2m      long[22m
 [2m      script[22m
-[2m  [22m"
+"
 `;
 
 exports[`proxies "contextLines" option(s) 1`] = `
@@ -32,7 +32,7 @@ exports[`proxies "expand" option(s) 1`] = `
 - First value
 + Second value
 
-  
+
       some
       some
       some
@@ -45,7 +45,7 @@ exports[`proxies "expand" option(s) 1`] = `
       very
       long
       script
-  "
+"
 `;
 
 exports[`works with custom name: slim 1`] = `
@@ -63,7 +63,7 @@ exports[`works with custom name: slim 1`] = `
       very
       long
       script
-  "
+"
 `;
 
 exports[`works with default options 1`] = `
@@ -81,5 +81,5 @@ exports[`works with default options 1`] = `
       very
       long
       script
-  "
+"
 `;

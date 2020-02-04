@@ -2,7 +2,7 @@
 
 'use strict';
 
-const diff = require('jest-diff');
+const diff = require('jest-diff').default;
 const snapshot = require('jest-snapshot');
 const reactSerializer = require('./react-serializer');
 
@@ -84,7 +84,7 @@ function toMatchDiffSnapshot(
 ) {
   const difference = snapshotDiff(valueA, valueB, options);
 
-  return snapshot.toMatchSnapshot.call(this, difference, testName);
+  return snapshot.toMatchSnapshot.call(this, difference, testName || '');
 }
 
 function getSnapshotDiffSerializer() {
