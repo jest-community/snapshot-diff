@@ -53,13 +53,13 @@ exports[`can use contextLines with React components 1`] = `
 - <Component test=\\"say\\" />
 + <Component test=\\"my name\\" />
 
-@@ -6,1 +6,1 @@
+@@ -10,1 +10,1 @@
 -     say
 +     my name
-@@ -9,1 +9,1 @@
+@@ -13,1 +13,1 @@
 -     say
 +     my name
-@@ -32,1 +32,1 @@
+@@ -36,1 +36,1 @@
 -     say
 +     my name"
 `;
@@ -118,12 +118,12 @@ exports[`detects React components 1`] = `
 - <Component test=\\"say\\" />
 + <Component test=\\"my name\\" />
 
-@@ -1,14 +1,14 @@
-  <div>
-    <span />
-    <span />
-    <span />
-    <span>
+@@ -5,14 +5,14 @@
+    <span
+      onBlur={[Function onBlur]}
+      onClick={[MockFunction]}
+      onFocus={[MockFunction test-mock-name]}
+    >
 -     say
 +     my name
     </span>
@@ -135,7 +135,7 @@ exports[`detects React components 1`] = `
     <span />
     <span />
     <span />
-@@ -27,11 +27,11 @@
+@@ -31,11 +31,11 @@
     <span />
     <span />
     <span />

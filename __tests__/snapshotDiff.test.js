@@ -87,7 +87,13 @@ class Component extends React.Component<Props> {
         <span />
         <span />
         <span />
-        <span>{this.props.test}</span>
+        <span
+          onBlur={() => {}}
+          onClick={jest.fn()}
+          onFocus={jest.fn().mockName('test-mock-name')}
+        >
+          {this.props.test}
+        </span>
         <span>{this.props.test}</span>
         <span />
         <span />
