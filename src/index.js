@@ -51,12 +51,6 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
     difference = diffStrings(valueA, valueB, mergedOptions);
   }
 
-  if (!mergedOptions.colors) {
-    const stripAnsi = require('strip-ansi');
-
-    difference = stripAnsi(difference);
-  }
-
   if (mergedOptions.stablePatchmarks && !mergedOptions.expand) {
     difference = difference.replace(
       /^@@ -[0-9]+,[0-9]+ \+[0-9]+,[0-9]+ @@$/gm,
@@ -67,12 +61,22 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
   return SNAPSHOT_TITLE + difference;
 };
 
+// https://github.com/facebook/jest/tree/d81464622dc8857ba995ed04e121af2b3e8e33bc/packages/jest-diff#example-of-options-for-no-colors
+const noDiffColors = {
+  aColor: identity,
+  bColor: identity,
+  changeColor: identity,
+  commonColor: identity,
+  patchColor: identity,
+};
+
 function diffStrings(valueA: any, valueB: any, options: Options) {
   return diff(valueA, valueB, {
     expand: options.expand,
     contextLines: options.contextLines,
     aAnnotation: options.aAnnotation,
     bAnnotation: options.bAnnotation,
+    ...(!options.colors ? noDiffColors : {})
   });
 }
 
