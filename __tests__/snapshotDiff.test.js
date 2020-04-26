@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable react/no-multi-comp */
+
 const React = require('react');
 const snapshotDiff = require('../src/index');
 
@@ -165,6 +167,17 @@ class Component extends React.Component<Props> {
   }
 }
 
+class FragmentComponent extends React.Component<Props> {
+  render() {
+    return (
+      <>
+        <div>First</div>
+        {this.props.withSecond ? <div>Second</div> : null}
+      </>
+    );
+  }
+}
+
 test('collapses diffs and strips ansi by default', () => {
   expect(snapshotDiff(a, b)).toMatchSnapshot();
 });
@@ -202,6 +215,12 @@ test('can use contextLines with React components', () => {
     snapshotDiff(<Component test="say" />, <Component test="my name" />, {
       contextLines: 0,
     })
+  ).toMatchSnapshot();
+});
+
+test('shows diff when comparing React fragments of varying length', () => {
+  expect(
+    snapshotDiff(<FragmentComponent />, <FragmentComponent withSecond />)
   ).toMatchSnapshot();
 });
 

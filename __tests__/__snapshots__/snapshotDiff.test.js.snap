@@ -165,3 +165,21 @@ exports[`failed optional deps throws with sensible message on missing react-test
 "Failed to load optional module \\"react-test-renderer\\". If you need to compare React elements, please add \\"react-test-renderer\\" to your project's dependencies.
 Cannot find module 'non-existent-module-for-testing' from 'snapshotDiff.test.js'"
 `;
+
+exports[`shows diff when comparing React fragments of varying length 1`] = `
+"Snapshot Diff:
+- <FragmentComponent />
++ <FragmentComponent withSecond={true} />
+
+- <div>
+-   First
+- </div>
++ Array [
++   <div>
++     First
++   </div>,
++   <div>
++     Second
++   </div>,
++ ]"
+`;
