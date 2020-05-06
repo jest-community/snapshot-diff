@@ -163,7 +163,7 @@ exports[`diffs short strings 1`] = `
 
 exports[`failed optional deps throws with sensible message on missing react-test-renderer 1`] = `
 "Failed to load optional module \\"react-test-renderer\\". If you need to compare React elements, please add \\"react-test-renderer\\" to your project's dependencies.
-Cannot find module 'non-existent-module-for-testing' from 'snapshotDiff.test.js'"
+Cannot find module 'non-existent-module-for-testing' from '__tests__/snapshotDiff.test.js'"
 `;
 
 exports[`shows diff when comparing React fragments of varying length 1`] = `
