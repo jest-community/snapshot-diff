@@ -50,8 +50,8 @@ exports[`can use contextLines on diff 1`] = `
 
 exports[`can use contextLines with React components 1`] = `
 "Snapshot Diff:
-- <Component test=\\"say\\" />
-+ <Component test=\\"my name\\" />
+- <Component namedJestMock={[MockFunction test-mock-name]} test=\\"say\\" unnamedFunction={[Function unnamedFunction]} unnamedJestMock={[MockFunction]} />
++ <Component namedJestMock={[MockFunction test-mock-name]} test=\\"my name\\" unnamedFunction={[Function unnamedFunction]} unnamedJestMock={[MockFunction]} />
 
 @@ -10,1 +10,1 @@
 -     say
@@ -115,12 +115,12 @@ exports[`collapses diffs and strips ansi by default 1`] = `
 
 exports[`detects React components 1`] = `
 "Snapshot Diff:
-- <Component test=\\"say\\" />
-+ <Component test=\\"my name\\" />
+- <Component namedJestMock={[MockFunction test-mock-name]} test=\\"say\\" unnamedFunction={[Function unnamedFunction]} unnamedJestMock={[MockFunction]} />
++ <Component namedJestMock={[MockFunction test-mock-name]} test=\\"my name\\" unnamedFunction={[Function unnamedFunction]} unnamedJestMock={[MockFunction]} />
 
 @@ -5,14 +5,14 @@
     <span
-      onBlur={[Function onBlur]}
+      onBlur={[Function unnamedFunction]}
       onClick={[MockFunction]}
       onFocus={[MockFunction test-mock-name]}
     >

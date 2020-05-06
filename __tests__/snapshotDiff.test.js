@@ -90,9 +90,9 @@ class Component extends React.Component<Props> {
         <span />
         <span />
         <span
-          onBlur={() => {}}
-          onClick={jest.fn()}
-          onFocus={jest.fn().mockName('test-mock-name')}
+          onBlur={this.props.unnamedFunction}
+          onClick={this.props.unnamedJestMock}
+          onFocus={this.props.namedJestMock}
         >
           {this.props.test}
         </span>
@@ -178,6 +178,12 @@ class FragmentComponent extends React.Component<Props> {
   }
 }
 
+const props = {
+  unnamedFunction: () => {},
+  unnamedJestMock: jest.fn(),
+  namedJestMock: jest.fn().mockName('test-mock-name'),
+};
+
 test('collapses diffs and strips ansi by default', () => {
   expect(snapshotDiff(a, b)).toMatchSnapshot();
 });
@@ -206,15 +212,22 @@ test('diffs short strings', () => {
 
 test('detects React components', () => {
   expect(
-    snapshotDiff(<Component test="say" />, <Component test="my name" />)
+    snapshotDiff(
+      <Component {...props} test="say" />,
+      <Component {...props} test="my name" />
+    )
   ).toMatchSnapshot();
 });
 
 test('can use contextLines with React components', () => {
   expect(
-    snapshotDiff(<Component test="say" />, <Component test="my name" />, {
-      contextLines: 0,
-    })
+    snapshotDiff(
+      <Component {...props} test="say" />,
+      <Component {...props} test="my name" />,
+      {
+        contextLines: 0,
+      }
+    )
   ).toMatchSnapshot();
 });
 

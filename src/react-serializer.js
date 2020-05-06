@@ -7,7 +7,6 @@ const snapshot = require('jest-snapshot');
 
 const serializers = snapshot.getSerializers();
 
-const { ReactElement } = prettyFormat.plugins;
 const reactElement = Symbol.for('react.element');
 
 function getReactComponentSerializer() {
@@ -36,7 +35,7 @@ const reactSerializer = {
     return reactComponentSerializer(value);
   },
   diffOptions: (valueA: any, valueB: any) => {
-    const prettyFormatOptions = { plugins: [ReactElement], min: true };
+    const prettyFormatOptions = { plugins: serializers, min: true };
     return {
       aAnnotation: prettyFormat(valueA, prettyFormatOptions),
       bAnnotation: prettyFormat(valueB, prettyFormatOptions),
