@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable react/no-multi-comp */
+
 const React = require('react');
 const snapshotDiff = require('../src/index');
 
@@ -87,7 +89,13 @@ class Component extends React.Component<Props> {
         <span />
         <span />
         <span />
-        <span>{this.props.test}</span>
+        <span
+          onBlur={this.props.unnamedFunction}
+          onClick={this.props.unnamedJestMock}
+          onFocus={this.props.namedJestMock}
+        >
+          {this.props.test}
+        </span>
         <span>{this.props.test}</span>
         <span />
         <span />
@@ -159,6 +167,23 @@ class Component extends React.Component<Props> {
   }
 }
 
+class FragmentComponent extends React.Component<Props> {
+  render() {
+    return (
+      <>
+        <div>First</div>
+        {this.props.withSecond ? <div>Second</div> : null}
+      </>
+    );
+  }
+}
+
+const props = {
+  unnamedFunction: () => {},
+  unnamedJestMock: jest.fn(),
+  namedJestMock: jest.fn().mockName('test-mock-name'),
+};
+
 test('collapses diffs and strips ansi by default', () => {
   expect(snapshotDiff(a, b)).toMatchSnapshot();
 });
@@ -187,15 +212,28 @@ test('diffs short strings', () => {
 
 test('detects React components', () => {
   expect(
-    snapshotDiff(<Component test="say" />, <Component test="my name" />)
+    snapshotDiff(
+      <Component {...props} test="say" />,
+      <Component {...props} test="my name" />
+    )
   ).toMatchSnapshot();
 });
 
 test('can use contextLines with React components', () => {
   expect(
-    snapshotDiff(<Component test="say" />, <Component test="my name" />, {
-      contextLines: 0,
-    })
+    snapshotDiff(
+      <Component {...props} test="say" />,
+      <Component {...props} test="my name" />,
+      {
+        contextLines: 0,
+      }
+    )
+  ).toMatchSnapshot();
+});
+
+test('shows diff when comparing React fragments of varying length', () => {
+  expect(
+    snapshotDiff(<FragmentComponent />, <FragmentComponent withSecond />)
   ).toMatchSnapshot();
 });
 

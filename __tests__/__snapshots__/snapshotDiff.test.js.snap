@@ -50,16 +50,16 @@ exports[`can use contextLines on diff 1`] = `
 
 exports[`can use contextLines with React components 1`] = `
 "Snapshot Diff:
-- <Component test=\\"say\\" />
-+ <Component test=\\"my name\\" />
+- <Component namedJestMock={[MockFunction test-mock-name]} test=\\"say\\" unnamedFunction={[Function unnamedFunction]} unnamedJestMock={[MockFunction]} />
++ <Component namedJestMock={[MockFunction test-mock-name]} test=\\"my name\\" unnamedFunction={[Function unnamedFunction]} unnamedJestMock={[MockFunction]} />
 
-@@ -6,1 +6,1 @@
+@@ -10,1 +10,1 @@
 -     say
 +     my name
-@@ -9,1 +9,1 @@
+@@ -13,1 +13,1 @@
 -     say
 +     my name
-@@ -32,1 +32,1 @@
+@@ -36,1 +36,1 @@
 -     say
 +     my name"
 `;
@@ -115,15 +115,15 @@ exports[`collapses diffs and strips ansi by default 1`] = `
 
 exports[`detects React components 1`] = `
 "Snapshot Diff:
-- <Component test=\\"say\\" />
-+ <Component test=\\"my name\\" />
+- <Component namedJestMock={[MockFunction test-mock-name]} test=\\"say\\" unnamedFunction={[Function unnamedFunction]} unnamedJestMock={[MockFunction]} />
++ <Component namedJestMock={[MockFunction test-mock-name]} test=\\"my name\\" unnamedFunction={[Function unnamedFunction]} unnamedJestMock={[MockFunction]} />
 
-@@ -1,14 +1,14 @@
-  <div>
-    <span />
-    <span />
-    <span />
-    <span>
+@@ -5,14 +5,14 @@
+    <span
+      onBlur={[Function unnamedFunction]}
+      onClick={[MockFunction]}
+      onFocus={[MockFunction test-mock-name]}
+    >
 -     say
 +     my name
     </span>
@@ -135,7 +135,7 @@ exports[`detects React components 1`] = `
     <span />
     <span />
     <span />
-@@ -27,11 +27,11 @@
+@@ -31,11 +31,11 @@
     <span />
     <span />
     <span />
@@ -164,4 +164,22 @@ exports[`diffs short strings 1`] = `
 exports[`failed optional deps throws with sensible message on missing react-test-renderer 1`] = `
 "Failed to load optional module \\"react-test-renderer\\". If you need to compare React elements, please add \\"react-test-renderer\\" to your project's dependencies.
 Cannot find module 'non-existent-module-for-testing' from 'snapshotDiff.test.js'"
+`;
+
+exports[`shows diff when comparing React fragments of varying length 1`] = `
+"Snapshot Diff:
+- <FragmentComponent />
++ <FragmentComponent withSecond={true} />
+
+- <div>
+-   First
+- </div>
++ Array [
++   <div>
++     First
++   </div>,
++   <div>
++     Second
++   </div>,
++ ]"
 `;

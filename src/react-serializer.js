@@ -3,8 +3,10 @@
 'use strict';
 
 const prettyFormat = require('pretty-format');
+const snapshot = require('jest-snapshot');
 
-const { ReactElement } = prettyFormat.plugins;
+const serializers = snapshot.getSerializers();
+
 const reactElement = Symbol.for('react.element');
 
 function getReactComponentSerializer() {
@@ -22,7 +24,8 @@ function getReactComponentSerializer() {
     }
     throw error;
   }
-  return value => renderer.create(value).toJSON();
+  return value =>
+    prettyFormat(renderer.create(value), { plugins: serializers });
 }
 
 const reactSerializer = {
@@ -32,7 +35,7 @@ const reactSerializer = {
     return reactComponentSerializer(value);
   },
   diffOptions: (valueA: any, valueB: any) => {
-    const prettyFormatOptions = { plugins: [ReactElement], min: true };
+    const prettyFormatOptions = { plugins: serializers, min: true };
     return {
       aAnnotation: prettyFormat(valueA, prettyFormatOptions),
       bAnnotation: prettyFormat(valueB, prettyFormatOptions),
