@@ -15,6 +15,9 @@
     "watch": "babel -w src --out-dir build"
   },
   "repository": "https://github.com/thymikee/snapshot-diff",
+  "engines": {
+    "node": ">=10"
+  },
   "peerDependencies": {
     "jest": ">=16"
   },
