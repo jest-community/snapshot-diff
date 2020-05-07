@@ -79,7 +79,11 @@ const noIndentB = `
 `;
 
 type Props = {
-  test: string,
+  test?: string,
+  unnamedFunction?: () => void,
+  unnamedJestMock?: () => void,
+  namedJestMock?: () => void,
+  withSecond?: boolean,
 };
 
 class Component extends React.Component<Props> {

@@ -76,7 +76,7 @@ function diffStrings(valueA: any, valueB: any, options: Options) {
     contextLines: options.contextLines,
     aAnnotation: options.aAnnotation,
     bAnnotation: options.bAnnotation,
-    ...(!options.colors ? noDiffColors : {})
+    ...(!options.colors ? noDiffColors : {}),
   });
 }
 
