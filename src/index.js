@@ -26,7 +26,7 @@ const defaultOptions = {
 
 const SNAPSHOT_TITLE = 'Snapshot Diff:\n';
 
-const identity = value => value;
+const identity = (value) => value;
 const defaultSerializers = [reactSerializer];
 let serializers = defaultSerializers;
 

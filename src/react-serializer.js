@@ -24,13 +24,13 @@ function getReactComponentSerializer() {
     }
     throw error;
   }
-  return value =>
+  return (value) =>
     prettyFormat(renderer.create(value), { plugins: serializers });
 }
 
 const reactSerializer = {
   test: (value: any) => value && value.$$typeof === reactElement,
-  print: (value: any, _serializer?: any => any) => {
+  print: (value: any, _serializer?: (any) => any) => {
     const reactComponentSerializer = getReactComponentSerializer();
     return reactComponentSerializer(value);
   },
