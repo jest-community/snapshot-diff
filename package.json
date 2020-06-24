@@ -22,9 +22,9 @@
     "jest": ">=16"
   },
   "dependencies": {
-    "jest-diff": "^26.0.1",
-    "jest-snapshot": "^26.0.1",
-    "pretty-format": "^26.0.1"
+    "jest-diff": "^26.1.0",
+    "jest-snapshot": "^26.1.0",
+    "pretty-format": "^26.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
@@ -38,7 +38,7 @@
     "enzyme-to-json": "^3.4.0",
     "eslint": "^7.0.0",
     "flow-bin": "^0.127.0",
-    "jest": "^26.0.1",
+    "jest": "^26.1.0",
     "react": "^16.13.1",
     "react-dom": "16.13.1",
     "react-test-renderer": "^16.13.1"
