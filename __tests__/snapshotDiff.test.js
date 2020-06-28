@@ -267,3 +267,7 @@ describe('failed optional deps', () => {
     ).toThrowErrorMatchingSnapshot();
   });
 });
+
+test('no difference', () => {
+  expect(snapshotDiff('a', 'a')).toMatchSnapshot();
+});

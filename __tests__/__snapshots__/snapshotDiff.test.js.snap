@@ -166,6 +166,11 @@ exports[`failed optional deps throws with sensible message on missing react-test
 Cannot find module 'non-existent-module-for-testing' from '__tests__/snapshotDiff.test.js'"
 `;
 
+exports[`no difference 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
 exports[`shows diff when comparing React fragments of varying length 1`] = `
 "Snapshot Diff:
 - <FragmentComponent />
