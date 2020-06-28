@@ -5,7 +5,8 @@
 const prettyFormat = require('pretty-format');
 const snapshot = require('jest-snapshot');
 
-const serializers = snapshot.getSerializers();
+const defaultSerializers = snapshot.getSerializers();
+let serializers = defaultSerializers;
 
 const reactElement = Symbol.for('react.element');
 
@@ -25,7 +26,11 @@ function getReactComponentSerializer() {
     throw error;
   }
   return (value) =>
-    prettyFormat(renderer.create(value), { plugins: serializers });
+    prettyFormat(renderer.create(value).toJSON(), { plugins: serializers });
+}
+
+function setSerializers(customSerializers) {
+  serializers = customSerializers;
 }
 
 const reactSerializer = {
@@ -41,6 +46,8 @@ const reactSerializer = {
       bAnnotation: prettyFormat(valueB, prettyFormatOptions),
     };
   },
+  setSerializers,
+  defaultSerializers,
 };
 
 module.exports = reactSerializer;

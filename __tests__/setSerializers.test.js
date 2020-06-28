@@ -1,9 +1,11 @@
 // @flow
 const React = require('react');
+const { jsx, css } = require('@emotion/core');
 const { configure, shallow: enzymeShallow } = require('enzyme');
 const ReactShallowRenderer = require('react-test-renderer/shallow');
 const Adapter = require('enzyme-adapter-react-16');
 const enzymeToJson = require('enzyme-to-json/serializer');
+const emotionSerializer = require('jest-emotion');
 const snapshotDiff = require('../src/index');
 
 configure({ adapter: new Adapter() });
@@ -18,7 +20,7 @@ type Props = {
 const Component = ({ value }) => <div>I have value {value}</div>;
 
 const NestedComponent = (props: Props) => (
-  <div>
+  <div className={props.className}>
     <span>Hello World - {props.test}</span>
     <Component value={1234} />
   </div>
@@ -108,6 +110,56 @@ describe('values which are not components', () => {
       snapshotDiff(
         { foo: 'bar', hello: 'world', testing: 123 },
         { foo: 'bar', hello: 'there', testing: 123 },
+        {
+          contextLines: 0,
+        }
+      )
+    ).toMatchSnapshot();
+  });
+});
+
+describe('components using CSS-in-JS', () => {
+  beforeEach(() => {
+    snapshotDiff.reactSerializer.setSerializers([
+      emotionSerializer,
+      ...snapshotDiff.reactSerializer.defaultSerializers,
+    ]);
+  });
+
+  test('diffs components', () => {
+    expect(
+      snapshotDiff(
+        jsx(NestedComponent, {
+          css: css`
+            color: green;
+          `,
+          test: 'say',
+        }),
+        jsx(NestedComponent, {
+          css: css`
+            color: red;
+          `,
+          test: 'my name',
+        })
+      )
+    ).toMatchSnapshot();
+  });
+
+  test('can use contextLines', () => {
+    expect(
+      snapshotDiff(
+        jsx(NestedComponent, {
+          css: css`
+            color: green;
+          `,
+          test: 'say',
+        }),
+        jsx(NestedComponent, {
+          css: css`
+            color: red;
+          `,
+          test: 'my name',
+        }),
         {
           contextLines: 0,
         }
