@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components using CSS-in-JS can use contextLines 1`] = `
+"Snapshot Diff:
+- <NestedComponent css=\\"unknown styles\\" test=\\"say\\" />
++ <NestedComponent css=\\"unknown styles\\" test=\\"my name\\" />
+
+@@ -2,1 +2,1 @@
+-   color: green;
++   color: red;
+@@ -10,1 +10,1 @@
+-     say
++     my name"
+`;
+
+exports[`components using CSS-in-JS diffs components 1`] = `
+"Snapshot Diff:
+- <NestedComponent css=\\"unknown styles\\" test=\\"say\\" />
++ <NestedComponent css=\\"unknown styles\\" test=\\"my name\\" />
+
+@@ -1,15 +1,15 @@
+  .emotion-0 {
+-   color: green;
++   color: red;
+  }
+
+  <div
+    className=\\"emotion-0\\"
+  >
+    <span>
+      Hello World - 
+-     say
++     my name
+    </span>
+    <div>
+      I have value 
+      1234
+    </div>"
+`;
+
 exports[`default rendered components can use contextLines 1`] = `
 "Snapshot Diff:
 - <NestedComponent test=\\"say\\" />

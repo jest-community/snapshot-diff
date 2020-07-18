@@ -112,3 +112,4 @@ module.exports.toMatchDiffSnapshot = toMatchDiffSnapshot;
 module.exports.getSnapshotDiffSerializer = getSnapshotDiffSerializer;
 module.exports.setSerializers = setSerializers;
 module.exports.defaultSerializers = defaultSerializers;
+module.exports.reactSerializer = reactSerializer;

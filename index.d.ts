@@ -27,6 +27,8 @@ interface Serializer {
   test: (value: any) => boolean;
   print: (value: any, _serializer?: any) => any;
   diffOptions?: (valueA: any, valueB: any) => DiffOptions;
+  setSerializers?: (serializers: Array<Serializer>) => void;
+  defaultSerializers?: Array<Serializer>;
 }
 
 declare module 'snapshot-diff' {
@@ -54,6 +56,7 @@ declare module 'snapshot-diff' {
      */
     setSerializers: (serializers: Array<Serializer>) => void;
     defaultSerializers: Array<Serializer>;
+    reactSerializer: Serializer;
   }
   const diff: SnapshotDiff;
   export = diff;

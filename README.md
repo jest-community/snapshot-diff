@@ -95,14 +95,20 @@ exports[`snapshot difference between 2 React components state 1`] = `
 
 ## Custom serializers
 
-By default, `snapshot-diff` uses a built in React serializer based on `react-test-renderer`. The
-[serializers](https://jestjs.io/docs/en/configuration#snapshotserializers-array-string) used can be set by calling
-`setSerializers` with an array of serializers to use. The order of serializers in this array may be important to you as
-serializers are tested in order until a match is found.
+By default, `snapshot-diff` uses a built in React component serializer based on `react-test-renderer`. The serializers
+used can be set by calling `setSerializers` with an array of serializers to use. The order of serializers in this array
+may be important to you as serializers are tested in order until a match is found.
 
-`setSerializers` can be used to add new serializers for unsupported data types, or to set a different serializer
-for React components. If you want to keep the default React serializer in place, don't forget to add the default
+`setSerializers` can be used to add new serializers for unsupported data types, or to set a different serializer for
+React components. If you want to keep the default React component serializer in place, don't forget to add the default
 serializers to your list of serializers!
+
+ℹ️ **Note:** Serializers are independent; once a serializer is matched no further serializers will be run for that
+input. This would be expected when adding a different serializer for React components (e.g. enzyme's serializer instead
+of the built in React component serializer) or adding a new serializer for unsupported data types. It may not be as
+expected when you need serializers to work together (e.g. rendering a React component which makes use of CSS-in-JS, like
+Emotion). If you need a serializer to work with the existing React component serializer, see the "_Enhancing the React
+component serializer_" section below.
 
 ### Adding a new custom serializer
 
@@ -111,15 +117,16 @@ const snapshotDiff = require('snapshot-diff');
 const myCustomSerializer = require('./my-custom-serializer');
 
 snapshotDiff.setSerializers([
-  ...snapshotDiff.defaultSerializers, // use default React serializer - add this if you want to serialise React components!
+                                      // Use the default React component serializer. Don't forget to add this if you
+  ...snapshotDiff.defaultSerializers, // want to continue to serialize React components
   myCustomSerializer
 ]);
 ```
 
 ### Serializing React components with a different serializer
 
-You can replace the default React serializer by omitting it from the serializer list. The following uses enzymes to-json
-serializer instead:
+You can replace the default React component serializer by omitting it from the serializer list. The following uses
+Enzyme's `to-json` serializer instead:
 
 ```js
 const snapshotDiff = require('snapshot-diff');
@@ -127,8 +134,40 @@ const enzymeToJson = require('enzyme-to-json/serializer');
 const myCustomSerializer = require('./my-custom-serializer');
 
 snapshotDiff.setSerializers([
-  enzymeToJson, // using enzymes serializer instead
+                                      // Use Enzyme's React component serializer. Add this instead of the default React
+  enzymeToJson,                       // component serializer if you want to replace how React components are serialized
   myCustomSerializer
+]);
+```
+
+## Enhancing the React component serializer
+
+`snapshot-diff` uses a built in React component serializer based on `react-test-renderer`. Internally, this makes use of
+the default Jest serializers which are passed to `pretty-format`. However, you may wish to use a different configuration
+of internal serializers when serializing a React component, e.g. Adding a new internal serializer to deal with using a
+CSS-in-JS solution, such as Emotion.
+
+The React component serializer is exposed at `snapshotDiff.reactSerializer`
+
+The API for adding new internal serializers to the React component serializer is similar to how top level serializers
+are added to  `snapshot-diff`. The React component serializer has a `setSerializers` function which can be used to
+change the internal serializers used for serializing a React component. If you want to keep using the default internal
+serializers, don't forget to add them too!
+
+ℹ️ **Note:** Internal serializers added to the React component serializer are only used by the React component
+serializer. i.e.
+ - `snapshotDiff.setSerializers` is **not** the same as `snapshotDiff.reactSerializer.setSerializers`
+ - `snapshotDiff.defaultSerializers` is **not** the same as `snapshotDiff.reactSerializer.defaultSerializers`
+
+### Adding a new serializer
+
+```js
+const snapshotDiff = require('snapshot-diff');
+const emotionSerializer = require('jest-emotion');
+
+snapshotDiff.reactSerializer.setSerializers([
+  emotionSerializer,
+  ...snapshotDiff.reactSerializer.defaultSerializers
 ]);
 ```
 
