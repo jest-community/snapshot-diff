@@ -2,7 +2,7 @@
 
 'use strict';
 
-const prettyFormat = require('pretty-format');
+const prettyFormat = require('pretty-format').default;
 const snapshot = require('jest-snapshot');
 
 const serializers = snapshot.getSerializers();
