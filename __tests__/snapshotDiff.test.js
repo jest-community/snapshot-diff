@@ -198,7 +198,9 @@ test('can expand diff', () => {
 
 test('can colorize diff', () => {
   expect(snapshotDiff(a, b)).not.toMatch('[32m-');
-  expect(snapshotDiff(a, b, { colors: true })).toMatch('[32m-');
+  if (!process.env.CI) {
+    expect(snapshotDiff(a, b, { colors: true })).toMatch('[32m-');
+  }
 });
 
 test('can use contextLines on diff', () => {
