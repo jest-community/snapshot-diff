@@ -2,7 +2,7 @@
 
 'use strict';
 
-const diff = require('jest-diff').default;
+const { diff } = require('jest-diff');
 const snapshot = require('jest-snapshot');
 const reactSerializer = require('./react-serializer');
 
