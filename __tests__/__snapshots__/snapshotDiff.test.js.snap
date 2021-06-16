@@ -1,23 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`can colorize diff 1`] = `
-"Snapshot Diff:
-[32m- First value[39m
-[31m+ Second value[39m
-
-[33m@@ -5,9 +5,10 @@[39m
-[2m      some[22m
-[2m      some[22m
-[2m      some[22m
-[2m      some[22m
-[2m      not[22m
-[31m+     so[39m
-[2m      very[22m
-[2m      long[22m
-[2m      script[22m
-"
-`;
-
 exports[`can expand diff 1`] = `
 "Snapshot Diff:
 - First value
