@@ -39,14 +39,12 @@ test('works with default options', () => {
   expect(a).toMatchDiffSnapshot(b);
 });
 
-[{ expand: true }, { colors: true }, { contextLines: 0 }].forEach(
-  (options: any) => {
-    test(`proxies "${Object.keys(options).join(', ')}" option(s)`, () => {
-      // $FlowFixMe
-      expect(a).toMatchDiffSnapshot(b, options);
-    });
-  }
-);
+[{ expand: true }, { contextLines: 0 }].forEach((options: any) => {
+  test(`proxies "${Object.keys(options).join(', ')}" option(s)`, () => {
+    // $FlowFixMe
+    expect(a).toMatchDiffSnapshot(b, options);
+  });
+});
 
 test('works with custom name', () => {
   // $FlowFixMe
