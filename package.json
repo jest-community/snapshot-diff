@@ -36,7 +36,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
-    "eslint": "^7.0.0",
+    "eslint": "^8.18.0",
     "flow-bin": "^0.129.0",
     "jest": "^27.0.4",
     "react": "^16.13.1",
