@@ -1,0 +1,2 @@
+[ignore]
+.*/node_modules/resolve/test/resolver/malformed_package_json/package.json
