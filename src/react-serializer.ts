@@ -1,19 +1,16 @@
-// @flow
+import { format as prettyFormat, OptionsReceived } from 'pretty-format';
+import { getSerializers } from 'jest-snapshot';
+import type { DiffSerializer } from './types';
 
-'use strict';
-
-const prettyFormat = require('pretty-format').default;
-const snapshot = require('jest-snapshot');
-
-const serializers = snapshot.getSerializers();
+const serializers = getSerializers();
 
 const reactElement = Symbol.for('react.element');
 
 function getReactComponentSerializer() {
-  let renderer;
+  let renderer: typeof import('react-test-renderer');
   try {
     renderer = require('react-test-renderer'); // eslint-disable-line import/no-extraneous-dependencies
-  } catch (error) {
+  } catch (error: any) {
     if (error.code === 'MODULE_NOT_FOUND') {
       throw new Error(
         `Failed to load optional module "react-test-renderer". ` +
@@ -24,23 +21,24 @@ function getReactComponentSerializer() {
     }
     throw error;
   }
-  return (value) =>
+  return (value: any) =>
     prettyFormat(renderer.create(value), { plugins: serializers });
 }
 
-const reactSerializer = {
-  test: (value: any) => value && value.$$typeof === reactElement,
-  print: (value: any, _serializer?: (any) => any) => {
+export const reactSerializer: DiffSerializer = {
+  test: (value) => value && value.$$typeof === reactElement,
+  print: (value: any) => {
     const reactComponentSerializer = getReactComponentSerializer();
     return reactComponentSerializer(value);
   },
-  diffOptions: (valueA: any, valueB: any) => {
-    const prettyFormatOptions = { plugins: serializers, min: true };
+  diffOptions: (valueA, valueB) => {
+    const prettyFormatOptions: OptionsReceived = {
+      plugins: serializers,
+      min: true,
+    };
     return {
       aAnnotation: prettyFormat(valueA, prettyFormatOptions),
       bAnnotation: prettyFormat(valueB, prettyFormatOptions),
     };
   },
 };
-
-module.exports = reactSerializer;
