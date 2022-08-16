@@ -16,7 +16,7 @@
   },
   "repository": "https://github.com/thymikee/snapshot-diff",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "peerDependencies": {
     "jest": ">=16"
