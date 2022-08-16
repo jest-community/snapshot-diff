@@ -199,6 +199,7 @@ test('can expand diff', () => {
 test('can colorize diff', () => {
   expect(snapshotDiff(a, b)).not.toMatch('[32m-');
   if (!process.env.CI) {
+    // eslint-disable-next-line jest/no-conditional-expect
     expect(snapshotDiff(a, b, { colors: true })).toMatch('[32m-');
   }
 });
