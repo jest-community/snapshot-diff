@@ -1,6 +1,5 @@
 {
   "extends": "@callstack",
-  "parser": "@typescript-eslint/parser",
   "rules": {
     "global-require": 0,
     "flowtype/no-weak-types": 0,
