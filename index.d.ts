@@ -2,6 +2,16 @@
 
 import type { Options } from './build';
 
+export {
+  defaultSerializers,
+  setSerializers,
+  getSnapshotDiffSerializer,
+  toMatchDiffSnapshot,
+  snapshotDiff,
+} from './build';
+
+export type { DiffSerializer, Options } from './build';
+
 declare namespace jest {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Matchers<R, T> {
