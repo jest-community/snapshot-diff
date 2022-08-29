@@ -1,9 +1,7 @@
-// @flow
-
 /* eslint-disable react/no-multi-comp */
 
 const React = require('react');
-const snapshotDiff = require('../src/index');
+const { snapshotDiff } = require('../src/index');
 
 const a = `
     some
@@ -78,15 +76,7 @@ const noIndentB = `
 @script
 `;
 
-type Props = {
-  test?: string,
-  unnamedFunction?: () => void,
-  unnamedJestMock?: () => void,
-  namedJestMock?: () => void,
-  withSecond?: boolean,
-};
-
-class Component extends React.Component<Props> {
+class Component extends React.Component {
   render() {
     return (
       <div>
@@ -171,7 +161,7 @@ class Component extends React.Component<Props> {
   }
 }
 
-class FragmentComponent extends React.Component<Props> {
+class FragmentComponent extends React.Component {
   render() {
     return (
       <>
@@ -254,7 +244,6 @@ test('can use stablePatchmarks on diff', () => {
 describe('failed optional deps', () => {
   beforeEach(() => {
     jest.mock('react-test-renderer', () => {
-      // $FlowFixMe -- this is intended.
       require('non-existent-module-for-testing'); // eslint-disable-line
     });
   });

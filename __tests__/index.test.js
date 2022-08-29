@@ -1,18 +1,15 @@
 test('public api', () => {
-  const index = require('../src/index');
+  const index = require('../build/index');
 
-  expect(index).toBeInstanceOf(Function);
-  expect(index.snapshotDiff).toBe(index);
+  expect(index.snapshotDiff).toBeInstanceOf(Function);
   expect(index.toMatchDiffSnapshot).toBeInstanceOf(Function);
   expect(index.getSnapshotDiffSerializer).toBeInstanceOf(Function);
 
   const {
-    snapshotDiff,
     toMatchDiffSnapshot,
     getSnapshotDiffSerializer,
-  } = require('../src/index');
+  } = require('../build/index');
 
-  expect(snapshotDiff).toBe(index);
   expect(toMatchDiffSnapshot).toBe(index.toMatchDiffSnapshot);
   expect(getSnapshotDiffSerializer).toBe(index.getSnapshotDiffSerializer);
 });

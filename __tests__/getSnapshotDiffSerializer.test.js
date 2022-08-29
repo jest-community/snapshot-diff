@@ -1,8 +1,6 @@
-// @flow
+const { snapshotDiff, getSnapshotDiffSerializer } = require('../src/index');
 
-const snapshotDiff = require('../src/index');
-// $FlowFixMe – wrong type declaration in flow-typed/jest@20.x.x
-expect.addSnapshotSerializer(snapshotDiff.getSnapshotDiffSerializer());
+expect.addSnapshotSerializer(getSnapshotDiffSerializer());
 
 test('serialize text diff output', () => {
   expect(

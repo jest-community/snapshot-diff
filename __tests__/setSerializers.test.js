@@ -1,23 +1,22 @@
-// @flow
 const React = require('react');
 const { configure, shallow: enzymeShallow } = require('enzyme');
 const ReactShallowRenderer = require('react-test-renderer/shallow');
 const Adapter = require('enzyme-adapter-react-16');
 const enzymeToJson = require('enzyme-to-json/serializer');
-const snapshotDiff = require('../src/index');
+const {
+  snapshotDiff,
+  setSerializers,
+  defaultSerializers,
+} = require('../src/index');
 
 configure({ adapter: new Adapter() });
 const reactShallow = new ReactShallowRenderer();
 
-snapshotDiff.setSerializers([...snapshotDiff.defaultSerializers, enzymeToJson]);
-
-type Props = {
-  test: string,
-};
+setSerializers([...defaultSerializers, enzymeToJson]);
 
 const Component = ({ value }) => <div>I have value {value}</div>;
 
-const NestedComponent = (props: Props) => (
+const NestedComponent = (props) => (
   <div>
     <span>Hello World - {props.test}</span>
     <Component value={1234} />

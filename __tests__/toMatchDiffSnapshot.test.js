@@ -1,5 +1,3 @@
-// @flow
-
 const snapshotDiff = require('../src/index');
 
 const a = `
@@ -35,18 +33,15 @@ beforeAll(() => {
 });
 
 test('works with default options', () => {
-  // $FlowFixMe
   expect(a).toMatchDiffSnapshot(b);
 });
 
-[{ expand: true }, { contextLines: 0 }].forEach((options: any) => {
+[{ expand: true }, { contextLines: 0 }].forEach((options) => {
   test(`proxies "${Object.keys(options).join(', ')}" option(s)`, () => {
-    // $FlowFixMe
     expect(a).toMatchDiffSnapshot(b, options);
   });
 });
 
 test('works with custom name', () => {
-  // $FlowFixMe
   expect(a).toMatchDiffSnapshot(b, {}, 'slim');
 });

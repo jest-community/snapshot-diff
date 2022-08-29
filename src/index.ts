@@ -1,21 +1,16 @@
-// @flow
+import { diff } from 'jest-diff';
+import type { MatcherState } from 'expect';
+import { toMatchSnapshot } from 'jest-snapshot';
+import { reactSerializer } from './react-serializer';
+import type { DiffOptions, DiffSerializer } from './types';
 
-'use strict';
+export type { DiffSerializer } from './types';
 
-const { diff } = require('jest-diff');
-const snapshot = require('jest-snapshot');
-const reactSerializer = require('./react-serializer');
+export interface Options extends DiffOptions {
+  colors?: boolean;
+}
 
-type Options = {|
-  expand?: boolean,
-  colors?: boolean,
-  contextLines?: number,
-  stablePatchmarks?: boolean,
-  aAnnotation?: string,
-  bAnnotation?: string,
-|};
-
-const defaultOptions = {
+const defaultOptions: Options = {
   expand: false,
   colors: false,
   contextLines: -1, // Forces to use default from Jest
@@ -26,12 +21,16 @@ const defaultOptions = {
 
 const SNAPSHOT_TITLE = 'Snapshot Diff:\n';
 
-const identity = (value) => value;
-const defaultSerializers = [reactSerializer];
+const identity = <T>(value: T): T => value;
+export const defaultSerializers = [reactSerializer];
 let serializers = defaultSerializers;
 
-const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
-  let difference;
+export const snapshotDiff = (
+  valueA: unknown,
+  valueB: unknown,
+  options?: Options
+): string => {
+  let difference: string | null;
   const mergedOptions = { ...defaultOptions, ...options };
 
   const matchingSerializer = serializers.find(
@@ -40,9 +39,8 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
 
   if (matchingSerializer) {
     const { print, diffOptions } = matchingSerializer;
-    const serializerOptions = diffOptions
-      ? diffOptions(valueA, valueB) || undefined
-      : undefined;
+    const serializerOptions = diffOptions?.(valueA, valueB) || undefined;
+    // @ts-expect-error
     difference = diffStrings(print(valueA, identity), print(valueB, identity), {
       ...mergedOptions,
       ...serializerOptions,
@@ -51,7 +49,7 @@ const snapshotDiff = (valueA: any, valueB: any, options?: Options): string => {
     difference = diffStrings(valueA, valueB, mergedOptions);
   }
 
-  if (mergedOptions.stablePatchmarks && !mergedOptions.expand) {
+  if (difference && mergedOptions.stablePatchmarks && !mergedOptions.expand) {
     difference = difference.replace(
       /^@@ -[0-9]+,[0-9]+ \+[0-9]+,[0-9]+ @@$/gm,
       '@@ --- --- @@'
@@ -70,7 +68,7 @@ const noDiffColors = {
   patchColor: identity,
 };
 
-function diffStrings(valueA: any, valueB: any, options: Options) {
+function diffStrings(valueA: unknown, valueB: unknown, options: Options) {
   return diff(valueA, valueB, {
     expand: options.expand,
     contextLines: options.contextLines,
@@ -80,18 +78,20 @@ function diffStrings(valueA: any, valueB: any, options: Options) {
   });
 }
 
-function toMatchDiffSnapshot(
-  valueA: any,
-  valueB: any,
+export function toMatchDiffSnapshot(
+  this: MatcherState,
+  valueA: unknown,
+  valueB: unknown,
   options?: Options,
-  testName?: string
+  ...rest: unknown[]
 ) {
   const difference = snapshotDiff(valueA, valueB, options);
 
-  return snapshot.toMatchSnapshot.call(this, difference, testName || '');
+  // @ts-expect-error
+  return toMatchSnapshot.call(this, difference, ...rest);
 }
 
-function getSnapshotDiffSerializer() {
+export function getSnapshotDiffSerializer() {
   return {
     test(value: any) {
       return typeof value === 'string' && value.indexOf(SNAPSHOT_TITLE) === 0;
@@ -102,13 +102,6 @@ function getSnapshotDiffSerializer() {
   };
 }
 
-function setSerializers(customSerializers) {
+export function setSerializers(customSerializers: Array<DiffSerializer>) {
   serializers = customSerializers;
 }
-
-module.exports = snapshotDiff;
-module.exports.snapshotDiff = snapshotDiff;
-module.exports.toMatchDiffSnapshot = toMatchDiffSnapshot;
-module.exports.getSnapshotDiffSerializer = getSnapshotDiffSerializer;
-module.exports.setSerializers = setSerializers;
-module.exports.defaultSerializers = defaultSerializers;
