@@ -244,7 +244,6 @@ test('can use stablePatchmarks on diff', () => {
 describe('failed optional deps', () => {
   beforeEach(() => {
     jest.mock('react-test-renderer', () => {
-      // $FlowFixMe -- this is intended.
       require('non-existent-module-for-testing'); // eslint-disable-line
     });
   });

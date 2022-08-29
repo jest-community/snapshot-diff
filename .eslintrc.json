@@ -2,7 +2,6 @@
   "extends": "@callstack",
   "rules": {
     "global-require": 0,
-    "flowtype/no-weak-types": 0,
     "strict": [0, "global"],
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "react-native/no-raw-text": 0
