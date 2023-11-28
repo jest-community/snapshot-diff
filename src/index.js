@@ -91,6 +91,28 @@ function toMatchDiffSnapshot(
   return snapshot.toMatchSnapshot.call(this, difference, testName || '');
 }
 
+function toMatchInlineDiffSnapshot(
+  valueA: any,
+  valueB: any,
+  optionsOrSnapshot?: Options | string,
+  inlineSnapshot?: string
+) {
+  let options = undefined;
+  if (typeof optionsOrSnapshot === 'string') {
+    inlineSnapshot = optionsOrSnapshot;
+  } else {
+    options = optionsOrSnapshot;
+  }
+
+  const difference = snapshotDiff(valueA, valueB, options);
+
+  if (inlineSnapshot) {
+    return snapshot.toMatchInlineSnapshot.call(this, difference, inlineSnapshot);
+  } else {
+    return snapshot.toMatchInlineSnapshot.call(this, difference)
+  }
+}
+
 function getSnapshotDiffSerializer() {
   return {
     test(value: any) {
@@ -109,6 +131,7 @@ function setSerializers(customSerializers) {
 module.exports = snapshotDiff;
 module.exports.snapshotDiff = snapshotDiff;
 module.exports.toMatchDiffSnapshot = toMatchDiffSnapshot;
+module.exports.toMatchInlineDiffSnapshot = toMatchInlineDiffSnapshot;
 module.exports.getSnapshotDiffSerializer = getSnapshotDiffSerializer;
 module.exports.setSerializers = setSerializers;
 module.exports.defaultSerializers = defaultSerializers;
