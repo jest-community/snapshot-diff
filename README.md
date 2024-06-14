@@ -93,6 +93,13 @@ exports[`snapshot difference between 2 React components state 1`] = `
 `;
 ```
 
+### Inline Snapshots
+
+You might want to use inline snapshots.
+
+With a default matcher, you can use `toMatchInlineSnapshot` instead of
+`toMatchSnapshot`. With a custom matcher, you can use `toMatchInlineDiffSnapshot` instead of `toMatchDiffSnapshot`.
+
 ## Custom serializers
 
 By default, `snapshot-diff` uses a built in React serializer based on `react-test-renderer`. The

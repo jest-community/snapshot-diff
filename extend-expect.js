@@ -1,4 +1,4 @@
 /* global expect */
-const { toMatchDiffSnapshot } = require('./build/');
+const { toMatchDiffSnapshot, toMatchInlineDiffSnapshot } = require('./build/');
 
-expect.extend({ toMatchDiffSnapshot });
+expect.extend({ toMatchDiffSnapshot, toMatchInlineDiffSnapshot });

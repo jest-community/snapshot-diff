@@ -41,6 +41,10 @@ declare module 'snapshot-diff' {
      */
     toMatchDiffSnapshot: jest.CustomMatcher;
     /**
+     * Compare the changes from a to b with the diff inlined into tests
+     */
+    toMatchInlineDiffSnapshot: jest.CustomMatcher;
+    /**
      * By default Jest adds extra quotes around strings so it makes diff
      * snapshots of objects too noisy. To fix this – snapshot-diff comes
      * with custom serializer.
