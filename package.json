@@ -15,6 +15,10 @@
     "watch": "babel -w src --out-dir build"
   },
   "repository": "https://github.com/thymikee/snapshot-diff",
+  "homepage": "https://github.com/jest-community/snapshot-diff#readme",
+  "bugs": {
+    "url": "https://github.com/jest-community/snapshot-diff/issues"
+  },
   "engines": {
     "node": ">=14"
   },
