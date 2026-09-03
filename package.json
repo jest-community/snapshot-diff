@@ -27,11 +27,11 @@
     "pretty-format": "^29.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.0",
+    "@babel/cli": "^8.0.0",
     "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-flow": "^7.0.0",
-    "@babel/preset-react": "^7.7.0",
+    "@babel/preset-env": "^8.0.0",
+    "@babel/preset-flow": "^8.0.0",
+    "@babel/preset-react": "^8.0.0",
     "@callstack/eslint-config": "^13.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
